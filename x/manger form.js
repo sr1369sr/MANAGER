@@ -33,9 +33,10 @@ function toggleAccordion(event) {
 const scriptURL = "https://script.google.com/macros/s/AKfycbxev2GeoPyYQUEhLphZ-e1c7k1ILjupD4zSUoQIx-pWfB76kWIJVITM9OD5z5SlwFNYbw/exec";
 
 function collectCheckboxValues() {
-    var fixedText = "https://srswebsite.github.io/P/"; // متن ثابت
+    var fixedText1 = "https://srswebsite.github.io/P/"; // متن ثابت اول
+    var fixedText2 = "/index.html"; // متن ثابت دوم
     var variableText = document.getElementById("variableInput2").value; // متن متغیر از فیلد ورودی
-    var finalText = fixedText + variableText; // ترکیب متن ثابت و متغیر
+    var finalText = fixedText1 + variableText + fixedText2; // ترکیب متن ثابت اول، متن متغیر و متن ثابت دوم
     
     // جمع‌آوری مقادیر چک باکس‌ها
     var checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
@@ -54,6 +55,7 @@ function collectCheckboxValues() {
     formData.set('projectTitle', projectTitle);
     formData.set('projectCoordinates', projectCoordinates);
 }
+
 
 // افزودن رفتار به فرم
 document.addEventListener("DOMContentLoaded", function() {
@@ -89,24 +91,18 @@ document.querySelectorAll('.accordion-header').forEach(header => {
         }
     });
 });
- function loadSite() {
-            var fixedText = "https://srswebsite.github.io/P/"; // متن ثابت
-            var variableText = document.getElementById("variableInput").value; // متن متغیر
+function loadSite() {
+    var fixedText1 = "https://srswebsite.github.io/P/"; // متن ثابت اول
+    var fixedText2 = "/index.html"; // متن ثابت دوم
+    var variableText = document.getElementById("variableInput").value; // متن متغیر
 
-            // ترکیب متن ثابت و متغیر
-            var finalText = fixedText + variableText;
+    // ترکیب متن ثابت اول، متن متغیر و متن ثابت دوم
+    var finalText = fixedText1 + variableText + fixedText2;
 
-            // قرار دادن لینک کامل در فیلد مخفی
-            document.getElementById("combinedText").value = finalText;
+    // قرار دادن لینک کامل در فیلد مخفی
+    document.getElementById("combinedText").value = finalText;
 
-            // نمایش لینک کامل در آیفریم
-            var siteFrame = document.getElementById("unique-siteFrame");
-            siteFrame.src = finalText;
-        }
-        function loadFixedLink() {
-            var fixedLink = "map.html"; // لینک ثابت
-
-            // نمایش لینک ثابت در آیفریم
-            var siteFrame = document.getElementById("unique-siteFrame");
-            siteFrame.src = fixedLink;
-        }
+    // نمایش لینک کامل در آیفریم
+    var siteFrame = document.getElementById("unique-siteFrame");
+    siteFrame.src = finalText;
+}
