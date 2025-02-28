@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>فرم انتشار</title>
+	 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Vazir:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="engine/styles_form.css"> <!-- لینک به فایل CSS -->
+    <script src="engine/script_form.js" defer></script> <!-- لینک به فایل JavaScript -->
+</head>
+<body>
+<div class="container">
+        
+        
+       <iframe id="unique-siteFrame" class="unique-iframe" src="map.html" title="نمایش سایت" allow="fullscreen; geolocation; touch-events"></iframe>
+
+    </div>
+<button id="sidebar-toggle"><i class="fas fa-bars"></i></button>
+ <div id="sidebar">
+    <header>
+      <span>پنل باشگاه مشتریان</span>
+    </header>
+    
+		
+		<button id="fixed-link-button" class="unique-button" onclick="loadFixedLink()">ویرایش جدول</button>
+<button id="fixed-link-button-2" class="unique-button" onclick="loadFixedLink2()">نمایش جدول</button>
+<button id="fixed-link-button-3" class="unique-button" onclick="loadFixedLink3()">نمایش نقشه</button>
+		
+		 <input type="hidden" id="combinedText" name="combinedText">
+		
+     <form id="myForm" method="POST">
+        <label for="variableInput2">شماره تماس</label><br>
+<input type="tel" id="variableInput2" placeholder="09123456789" required>
+
+
+		
+<div>
+    <label for="projectTitle">نام واحد صنفی:</label>
+    <input type="text" id="projectTitle" name="projectTitle">
+  </div>
+  <label for="projectArea">توضیحات</label><br>
+<input type="text" id="projectAreaInput" class="project-area" name="projectArea" placeholder="توضیحات"><br><br>
+  <div>
+    <label for="projectCoordinates">مختصات پروژه (طول و عرض جغرافیایی):</label>
+    <input type="text" id="projectCoordinates" name="projectCoordinates" placeholder="35.7123, 51.3732">
+  </div>
+  <div>
+		 <input type="submit" value="انتشار">
+
+        <!-- فیلد مخفی برای ذخیره متن ترکیب شده -->
+        <input type="hidden" id="combinedText2" name="combinedText">
+        
+        <!-- فیلد مخفی برای ذخیره دسته‌بندی‌ها -->
+        <input type="hidden" id="categories" name="categories">
+
+        <!-- فیلد مخفی برای شناسه فرم -->
+        <input type="hidden" id="formId" name="formId" value="فرم یک">
+		
+       
+        <div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">دسته بندی واحد صنفی</div>
+            <div class="accordion-content">
+                <label><input type="checkbox" name="userType[]" value="مصالح فروشی"> مصالح فروشی</label><br>
+                <label><input type="checkbox" name="userType[]" value="تامین کننده"> تامین کننده</label><br>
+                <label><input type="checkbox" name="userType[]" value="تزییناتی"> تزییناتی</label><br>
+				<label><input type="checkbox" name="userType[]" value="شرکت پیمانکار"> شرکت پیمانکار</label><br>
+				<label><input type="checkbox" name="userType[]" value="نصاب"> نصاب</label><br>
+				<label><input type="checkbox" name="userType[]" value="خدماتی"> خدماتی</label><br>
+				<label><input type="checkbox" name="userType[]" value="تولیدی"> تولیدی</label><br>
+				<label><input type="checkbox" name="userType[]" value="غیره"> غیره</label><br>
+            </div>
+        </div>
+		 
+        </div>
+
+       
+    </form>
+	 </div>
+	
+</body>
+</html>
