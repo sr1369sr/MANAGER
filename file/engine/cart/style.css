@@ -1,0 +1,222 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  margin: -8px;
+   background: #e0e5ec;
+}
+.card {
+    position: relative; /* برای استفاده از z-index */
+    width: 90%;
+    max-width: 1200px;
+    background-color:rgb(224, 229, 236);
+   
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 1rem;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 20px;
+   box-shadow:
+   -7px -7px 20px 0px #fff9,
+   -4px -4px 5px 0px #fff9,
+   7px 7px 20px 0px #0002,
+   4px 4px 5px 0px #0001,
+   inset 0px 0px 0px 0px #fff9,
+   inset 0px 0px 0px 0px #0001,
+   inset 0px 0px 0px 0px #fff9,        inset 0px 0px 0px 0px #0001;
+    font-size: 1rem;
+}
+
+
+    iframe {
+      width: 48%;
+      height: 200px;
+      border: none;
+      margin: 10px;
+      border-radius: 100px 10px 100px 10px;
+       box-shadow:
+   -7px -7px 20px 0px #fff9,
+   -4px -4px 5px 0px #fff9,
+   7px 7px 20px 0px #0002,
+   4px 4px 5px 0px #0001,
+   inset 0px 0px 0px 0px #fff9,
+   inset 0px 0px 0px 0px #0001,
+   inset 0px 0px 0px 0px #fff9,        inset 0px 0px 0px 0px #0001;
+    }
+
+    .title-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      margin-left: 20px;
+      flex: 1;
+      text-align: right;
+      direction: rtl;
+    }
+
+    .title {
+      font-size: 1.5rem;
+      color: #00abff;
+      margin:20px;
+      animation: slideInFromLeft 1s ease-in-out, pulse 2s infinite;
+    }
+
+    .description {
+      font-size: 1.1rem;
+      margin-bottom: 50px;
+      animation: bounceIn 1.2s ease-in-out, colorChange 4s infinite;
+    }
+
+    @keyframes slideInFromLeft {
+      from {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    @keyframes bounceIn {
+      from {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    @keyframes colorChange {
+      0% {
+        color: #00d6ff;
+      }
+      50% {
+        color: #5d8d8b;
+      }
+      100% {
+        color: #0061ff;
+      }
+    }
+
+    /* بخش لوگو بالای عنوان و کنار آیفریم */
+    .logo-container {
+      position: relative;
+      top: -10px;
+      left: 10px;
+      width: 60px;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+       box-shadow:
+   -7px -7px 20px 0px #fff9,
+   -4px -4px 5px 0px #fff9,
+   7px 7px 20px 0px #0002,
+   4px 4px 5px 0px #0001,
+   inset 0px 0px 0px 0px #fff9,
+   inset 0px 0px 0px 0px #0001,
+   inset 0px 0px 0px 0px #fff9,        inset 0px 0px 0px 0px #0001;
+    }
+
+    .logo-container svg {
+      width: 60px;
+      height: 60px;
+      fill: white; /* رنگ لوگو */
+    }
+.evenodd {
+    stroke:#00acee;
+    stroke-width:3;
+    fill:  #20c1ff;#77c5d4;
+    stroke-dasharray: 1800;
+    stroke-dashoffset: 0;
+    animation: show 5s ease-in-out infinite;
+  }
+  @keyframes show{
+    0%{
+      fill: transparent;
+      stroke-dashoffset: 1800;
+    }100%{
+      fill: #000000db
+      stroke-dashoffset: 0;
+    }
+  } 
+	 @keyframes show{
+    0%{
+      fill: transparent;
+      stroke-dashoffset: 1800;
+    }100%{
+      fill: #000000db
+      stroke-dashoffset: 0;
+    }
+  }  
+ 
+.frame{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 50px;
+  width: 260px;
+  position: relative;
+   box-shadow:
+   -7px -7px 20px 0px #fff9,
+   -4px -4px 5px 0px #fff9,
+   7px 7px 20px 0px #0002,
+   4px 4px 5px 0px #0001,
+   inset 0px 0px 0px 0px #fff9,
+   inset 0px 0px 0px 0px #0001,
+   inset 0px 0px 0px 0px #fff9,        inset 0px 0px 0px 0px #0001;
+ transition:box-shadow 0.6s cubic-bezier(.79,.21,.06,.81);
+   border-radius: 10px;
+}
+
+.btn{
+  height: 35px;
+  width: 35px;
+  border-radius: 3px;
+  background: #e0e5ec;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: transparent;
+  box-shadow:
+   -7px -7px 20px 0px #fff9,
+   -4px -4px 5px 0px #fff9,
+   7px 7px 20px 0px #0002,
+   4px 4px 5px 0px #0001,
+   inset 0px 0px 0px 0px #fff9,
+   inset 0px 0px 0px 0px #0001,
+   inset 0px 0px 0px 0px #fff9,        inset 0px 0px 0px 0px #0001;
+ transition:box-shadow 0.6s cubic-bezier(.79,.21,.06,.81);
+  font-size: 16px;
+  color: rgba(42, 52, 84, 1);
+  text-decoration: none;
+}
+.btn:active{
+  box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+              -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+    inset -4px -4px 6px 0 rgba(255,255,255,.5),
+    inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
+}
