@@ -1,0 +1,132 @@
+* {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Vazir', sans-serif;
+      background: #e0e5ec;
+      overflow-x: hidden;
+      transition: margin-left 0.3s ease;
+      direction: rtl;
+      text-align: right;
+    }
+
+     #sidebar-toggle {
+      position: fixed;
+      top: 2px;
+      right: 8px;
+      z-index: 1001;
+      background: #e0e5ec;
+      color: #007bff;
+      border: none;
+      padding: 12px;
+      cursor: pointer;
+      border-radius: 50%;
+      box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2), -3px -3px 10px rgba(255, 255, 255, 0.7);
+      transition: all 0.3s ease;
+    }
+
+    #sidebar-toggle:hover {
+      box-shadow: inset 3px 3px 8px rgba(0, 0, 0, 0.2), inset -3px -3px 8px rgba(255, 255, 255, 0.7);
+      transform: scale(1.1);
+    }
+
+    #sidebar {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      height: 100%;
+      width: 250px;
+      overflow-y: auto;
+	  overflow-x: hidden; /* غیرفعال‌سازی پیمایش افقی */
+      transition: right 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+      z-index: 1000;
+     
+      background: #e0e5ec;
+      box-shadow: -10px 0px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    #sidebar.open {
+      right: 0;
+    }
+
+    #sidebar header {
+      padding: 7px;
+      display: flex;
+      justify-content: space-between;
+      text-align: center; /* اضافه کردن این خط */
+  width: 100%; /* اضافه کردن این خط */
+  display: block; /* اضافه کردن این خط */
+      background: #007bff;
+      color: white;
+      box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    #sidebar header span {
+      font-size: 17px;
+      font-weight: bold;
+    }
+	
+ .accordion {
+  margin: 20px 15px;
+}
+
+.accordion button {
+  width: 100%;
+  color: #006aff;
+  padding: 5px;
+  background: #e0e5ec;
+  border: none;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2), -3px -3px 8px rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: 'Vazir', sans-serif;
+}
+
+.accordion button:hover {
+  background: #007bff;
+  color: white;
+}
+
+.panel {
+  max-height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  opacity: 0;
+  transition: max-height 0.3s ease-out, opacity 0.3s ease, visibility 0.3s ease;
+  background: #e0e5ec;
+  padding: 0; /* حذف پدینگ در حالت بسته */
+  margin: 0; /* حذف مارجین در حالت بسته */
+  border-radius: 12px;
+}
+
+.panel.open {
+  max-height: 500px; /* ارتفاع کافی برای محتوا */
+  visibility: visible;
+  opacity: 1;
+  padding: 10px; /* اضافه شدن پدینگ در حالت باز */
+  margin: 5px 0; /* اضافه شدن مارجین در حالت باز */
+}
+
+.panel a {
+  display: block;
+  padding: 10px;
+  color: #333;
+  text-decoration: none;
+  background: #c9b2ff;
+  text-align: center;
+  border-radius: 8px;
+  margin-bottom: 5px;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2), -3px -3px 8px rgba(255, 255, 255, 0.7);
+  transition: background 0.3s ease;
+}
+
+.panel a:hover {
+  background: #007bff;
+  color: white;
+}

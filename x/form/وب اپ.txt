@@ -1,0 +1,30 @@
+function doPost(e) {
+    const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+    
+    if (!e.parameter) {
+        return ContentService.createTextOutput("No data received.");
+    }
+
+    const email = Session.getActiveUser().getEmail(); 
+
+ // ایجاد ردیف جدید
+const row = [
+    new Date(), // زمان ثبت
+    email, // ایمیل کاربر
+    e.parameter.combinedText || "", // نام پروژه
+    e.parameter.categories || "", // دسته‌بندی‌ها
+    e.parameter.formId || "", // شناسه فرم
+    e.parameter.projectArea || "", // متراژ پروژه
+    "", // ستون G
+    "", // ستون H
+    "", // ستون I
+    "", // ستون J
+    "", // ستون K
+    e.parameter.projectCoordinates || "", // ستون L: مختصات پروژه
+    e.parameter.projectTitle || "" // ستون M: عنوان پروژه
+];
+    
+    sheet.appendRow(row);
+    
+    return HtmlService.createHtmlOutput("<html><head><script>window.location.href = '#';</script></head><body></body></html>");
+}

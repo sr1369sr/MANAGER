@@ -1,0 +1,143 @@
+const FOLDER_ID = "1yXpW_jHS86EuBBTIyRX435uppiYQ9YGj";
+
+// آپلود فایل
+function uploadFile(fileData, fileName) {
+  const folder = DriveApp.getFolderById(FOLDER_ID);
+  const blob = Utilities.newBlob(Utilities.base64Decode(fileData), 'application/octet-stream', fileName);
+  const file = folder.createFile(blob);
+  return file.getUrl();
+}
+
+// ایجاد پوشه جدید
+function createFolder(folderName) {
+  const parentFolder = DriveApp.getFolderById(FOLDER_ID);
+  parentFolder.createFolder(folderName);
+}
+
+// بازیابی لیست فایل‌ها و پوشه‌ها
+function getFileList() {
+  const folder = DriveApp.getFolderById(FOLDER_ID);
+  const files = folder.getFiles();
+  const subFolders = folder.getFolders();
+  const fileList = [];
+
+  // افزودن پوشه‌ها به لیست
+  while (subFolders.hasNext()) {
+    const subFolder = subFolders.next();
+    fileList.push({
+      id: subFolder.getId(),
+      name: subFolder.getName(),
+      isFolder: true
+    });
+  }
+
+  // افزودن فایل‌ها به لیست
+  while (files.hasNext()) {
+    const file = files.next();
+    fileList.push({
+      id: file.getId(),
+      name: file.getName(),
+      size: (file.getSize() / (1024 * 1024)).toFixed(2) + " MB",
+      lastUpdated: file.getLastUpdated().toDateString(),
+      isFolder: false
+    });
+  }
+
+  return { path: folder.getName(), items: fileList };
+}
+
+// حذف فایل
+function deleteFile(fileId) {
+  try {
+    const file = DriveApp.getFileById(fileId);
+    file.setTrashed(true);
+    return { success: true };
+  } catch (error) {
+    return { success: false, error: error.message };
+  }
+}
+
+// حذف پوشه
+function deleteFolder(folderId) {
+  try {
+    const folder = DriveApp.getFolderById(folderId);
+    folder.setTrashed(true);
+    return { success: true };
+  } catch (error) {
+    return { success: false, error: error.message };
+  }
+}
+
+// تغییر نام فایل یا پوشه در سمت سرور
+function renameItem(itemId, newName, isFolder) {
+  try {
+    const item = isFolder ? DriveApp.getFolderById(itemId) : DriveApp.getFileById(itemId);
+    item.setName(newName);
+    return { success: true };
+  } catch (error) {
+    return { success: false, error: error.message };
+  }
+}
+
+// دریافت لینک دانلود فایل
+function getFileUrl(fileId) {
+  try {
+    const file = DriveApp.getFileById(fileId);
+    return { success: true, url: file.getDownloadUrl() };
+  } catch (error) {
+    return { success: false, error: error.message };
+  }
+}
+
+// دریافت لینک دسترسی به پوشه
+function getFolderUrl(folderId) {
+  try {
+    const folder = DriveApp.getFolderById(folderId);
+    return { success: true, url: folder.getUrl() };
+  } catch (error) {
+    return { success: false, error: error.message };
+  }
+}
+
+// درخواست‌های POST
+function doPost(e) {
+  const action = e.parameter.action;
+
+  if (action === 'upload') {
+    const fileData = e.parameter.fileData;
+    const fileName = e.parameter.fileName;
+    const result = uploadFile(fileData, fileName);
+    return ContentService.createTextOutput(JSON.stringify({ url: result }));
+  } else if (action === 'createFolder') {
+    const folderName = e.parameter.folderName;
+    createFolder(folderName);
+    return ContentService.createTextOutput(JSON.stringify({ success: true }));
+  } else if (action === 'getFileList') {
+    const files = getFileList();
+    return ContentService.createTextOutput(JSON.stringify(files));
+  } else if (action === 'deleteFile') {
+    const fileId = e.parameter.itemId;
+    const result = deleteFile(fileId);
+    return ContentService.createTextOutput(JSON.stringify(result));
+  } else if (action === 'deleteFolder') {
+    const folderId = e.parameter.itemId;
+    const result = deleteFolder(folderId);
+    return ContentService.createTextOutput(JSON.stringify(result));
+  } else if (action === 'renameItem') {
+    const itemId = e.parameter.itemId;
+    const newName = e.parameter.newName;
+    const isFolder = e.parameter.isFolder === 'true'; // تبدیل مقدار رشته به بولین
+    const result = renameItem(itemId, newName, isFolder);
+    return ContentService.createTextOutput(JSON.stringify(result));
+  } else if (action === 'getFileUrl') {
+    const fileId = e.parameter.fileId;
+    const result = getFileUrl(fileId);
+    return ContentService.createTextOutput(JSON.stringify(result));
+  } else if (action === 'getFolderUrl') {
+    const folderId = e.parameter.folderId;
+    const result = getFolderUrl(folderId);
+    return ContentService.createTextOutput(JSON.stringify(result));
+  }
+
+  return ContentService.createTextOutput(JSON.stringify({ success: false, error: "عملیات مشخص نشده است." }));
+}
