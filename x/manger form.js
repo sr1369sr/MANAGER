@@ -33,7 +33,7 @@ function toggleAccordion(event) {
 const scriptURL = "https://script.google.com/macros/s/AKfycbxev2GeoPyYQUEhLphZ-e1c7k1ILjupD4zSUoQIx-pWfB76kWIJVITM9OD5z5SlwFNYbw/exec";
 
 function collectCheckboxValues() {
-    var fixedText = "https://etktbdviplp6rr7gnykzoq.on.drv.tw/p/"; // متن ثابت
+    var fixedText = "https://srswebsite.github.io/P/"; // متن ثابت
     var variableText = document.getElementById("variableInput2").value; // متن متغیر از فیلد ورودی
     var finalText = fixedText + variableText; // ترکیب متن ثابت و متغیر
     
@@ -90,7 +90,7 @@ document.querySelectorAll('.accordion-header').forEach(header => {
     });
 });
  function loadSite() {
-            var fixedText = "https://etktbdviplp6rr7gnykzoq.on.drv.tw/p/"; // متن ثابت
+            var fixedText = "https://srswebsite.github.io/P/"; // متن ثابت
             var variableText = document.getElementById("variableInput").value; // متن متغیر
 
             // ترکیب متن ثابت و متغیر
