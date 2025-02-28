@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Vazir:wght@300;400;500&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+ <link rel="stylesheet" href="x/pro maker.css"> <!-- لینک به فایل CSS -->
+    
+
+
+    <title>SRS_Gallery maker</title>
+   
+</head>
+<body>
+
+  <div id="editor-container">
+        <!-- پنل ویرایش متن -->
+ <div id="editor">
+        <textarea id="html-content" placeholder="HTML content will appear here..."></textarea>
+    </div>
+
+        <!-- پنل پیش‌نمایش -->
+        <div id="preview">
+            <iframe id="preview-frame"></iframe>
+        </div>
+    </div>
+ <button id="sidebar-toggle"><i class="fas fa-bars"></i></button>
+  
+  <div id="sidebar">
+  <header>
+      <span>SRS->Gallery maker_____</span>
+    </header>
+	<div class="content">
+      <div class="accordion">
+        <button>منو</button>
+        <div class="panel">
+          <a href="index.html">پنل مدیر</a>
+          <a href="01_Pic editor.html">ادیتور عکس</a>
+          <a href="02_Pic uploader.html">آپلود عکس</a>
+          <a href="03_pro maker.html">ساخت پروژه</a>
+          <a href="04_pro uploader.html">آپلود پروژه</a>
+          <a href="05_manger form.html">فرم مجوز انتشار</a>
+        </div>
+      </div>
+    </div>
+	<div class="accordion">
+	<div class="accordion-header" onclick="toggleAccordion(this)">اسلایدر</div>
+            <div class="accordion-content">
+       <!-- دکمه‌های افزودن کدهای آماده -->
+    <button id="load-slide01" class="load-slide-btn">Slide 01</button>
+    <button id="load-slide02" class="load-slide-btn">Slide 02</button>
+	<button id="load-slide03" class="load-slide-btn">Slide 03</button>
+	<button id="load-slide04" class="load-slide-btn">Slide 04</button>
+	<button id="load-slide05" class="load-slide-btn">Slide 05</button>
+	<button id="load-slide06" class="load-slide-btn">Slide 06</button>
+	<button id="load-slide07" class="load-slide-btn">Slide 07</button>
+	<button id="load-slide08" class="load-slide-btn">Slide 08</button>
+	<button id="load-slide09" class="load-slide-btn">Slide 09</button>
+	<button id="load-slide010" class="load-slide-btn">Slide 010</button>
+ </div>
+</div>
+<div class="accordion">
+	<div class="accordion-header" onclick="toggleAccordion(this)"> a&b </div>
+            <div class="accordion-content">
+       <!-- دکمه‌های افزودن کدهای آماده -->
+    <button id="load-sample01" class="load-slide-btn">2-late</button>
+    <button id="load-sample02" class="load-slide-btn">3-late</button>
+	<button id="load-sample03" class="load-slide-btn">4-late</button>
+	<button id="load-sample04" class="load-slide-btn">5-late</button>
+	<button id="load-sample05" class="load-slide-btn">6-late</button>
+	<button id="load-sample06" class="load-slide-btn">7-late</button>
+	<button id="load-sample07" class="load-slide-btn">8-late</button>
+	<button id="load-sample08" class="load-slide-btn">9-late</button>
+	<button id="load-sample09" class="load-slide-btn">10-late</button>
+	<button id="load-sample010" class="load-slide-btn">11-late</button>
+	
+ </div>
+</div>
+<div class="accordion">
+	<div class="accordion-header" onclick="toggleAccordion(this)">کارت</div>
+            <div class="accordion-content">
+       <!-- دکمه‌های افزودن کدهای آماده -->
+    <button id="load-cart01" class="load-slide-btn">cart 01</button>
+    <button id="load-cart02" class="load-slide-btn">cart 02</button>
+	<button id="load-cart03" class="load-slide-btn">cart 03</button>
+	<button id="load-cart04" class="load-slide-btn">cart 04</button>
+	<button id="load-cart05" class="load-slide-btn">cart 05</button>
+	<button id="load-cart06" class="load-slide-btn">cart 06</button>
+	<button id="load-cart07" class="load-slide-btn">cart 07</button>
+	<button id="load-cart08" class="load-slide-btn">cart 08</button>
+	<button id="load-cart09" class="load-slide-btn">cart 09</button>
+	<button id="load-cart010" class="load-slide-btn">cart 010</button>
+ </div>
+</div>
+
+<input type="file" id="file-input" accept=".html">
+
+<button id="preview-btn"class="preview-btn">پیش نمایش</button>
+<button id="clear-btn" class="clear-btn">پاک کردن</button>
+<!-- فیلد برای وارد کردن متن جدید -->
+<input type="text" id="unique-replace-input" placeholder="متن جدید">
+<input type="file" id="folder-input" webkitdirectory mozdirectory />
+<button id="save-btn" class="save-btn">ذخیره</button>
+<!-- دکمه دانلود پوشه با کلاس و آیدی منحصر به فرد -->
+  <a id="downloadFolderBtn" class="download-folder-btn" href="#" onclick="downloadFolder()">دانلود پوشه</a>
+
+<div class="accordion">
+	<div class="accordion-header" onclick="toggleAccordion(this)"> جایگزین </div>
+            <div class="accordion-content">
+<!-- دکمه‌ها برای جایگزینی کلمات -->
+<div id="replace-buttons"></div>
+<input type="file" id="txt-file-input" accept=".txt" style="display: none;">
+	
+ </div>
+</div>
+</div>
+<script src="x/pro maker.js" defer></script> <!-- لینک به فایل JavaScript -->
+</body>
+</html>

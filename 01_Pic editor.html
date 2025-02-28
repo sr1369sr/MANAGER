@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Vazir:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="x/piceditor.css"> <!-- لینک به فایل CSS -->
+    
+    <title>SRS_PIC Editor</title>
+    
+</head>
+<body>
+    <canvas id="myCanvas" width="1600" height="900"></canvas>
+    <div id="resize-handle"></div>
+    <div id="move-handle"></div>
+    <div id="resize-handle-second"></div>
+    <div id="move-handle-second"></div>
+    <button id="sidebar-toggle"><i class="fas fa-bars"></i></button>
+    <div id="sidebar">
+	<header>
+      <span>SRS->PIC Editor________</span>
+    </header>
+	<div class="content">
+      <div class="accordion">
+        <button>منو</button>
+        <div class="panel">
+		  <a href="index.html">پنل مدیر</a>
+          <a href="01_Pic editor.html">ادیتور عکس</a>
+          <a href="02_Pic uploader.html">آپلود عکس</a>
+          <a href="03_pro maker.html">ساخت پروژه</a>
+          <a href="04_pro uploader.html">آپلود پروژه</a>
+          <a href="05_manger form.html">فرم مجوز انتشار</a>
+        </div>
+      </div>
+    </div>
+        <input type="file" id="imageInput" accept="image/*">
+        <button id="uploadButton">بارگذاری عکس اول</button>
+        <input type="file" id="imageInputSecond" accept="image/*">
+        <button id="uploadButtonSecond">بارگذاری عکس دوم</button>
+        
+        <div>
+            <label>بلور:</label>
+            <input type="range" id="blur" min="0" max="60" value="0">
+            <span id="blurValue">0px</span>
+        </div>
+        <button id="saveButton">ذخیره</button>
+    </div>
+	<script src="x/piceditor.js" defer></script> <!-- لینک به فایل JavaScript -->
+</body>
+</html>

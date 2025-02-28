@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>فرم انتشار</title>
+	 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Vazir:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="x/manger form.css"> <!-- لینک به فایل CSS -->
+    
+</head>
+<body>
+<div class="container">
+        
+        
+        <iframe id="unique-siteFrame" class="unique-iframe" src="" title="نمایش سایت"></iframe>
+    </div>
+<button id="sidebar-toggle"><i class="fas fa-bars"></i></button>
+ <div id="sidebar">
+    <header>
+      <span>پنل کنترل و انتشار پروژه</span>
+    </header>
+    <div class="content">
+      <div class="accordion">
+        <button>منو</button>
+        <div class="panel">
+         <a href="index.html">پنل مدیر</a>
+          <a href="01_Pic editor.html">ادیتور عکس</a>
+          <a href="02_Pic uploader.html">آپلود عکس</a>
+          <a href="03_pro maker.html">ساخت پروژه</a>
+          <a href="04_pro uploader.html">آپلود پروژه</a>
+          <a href="05_manger form.html">فرم مجوز انتشار</a>
+        </div>
+      </div>
+    </div>
+	<!-- فیلد ورودی با متن ثابت -->
+        <label for="variableInput">نام پروژه</label><br>
+        <input type="text" id="variableInput" class="unique-input" placeholder="نام پروژه را وارد کنید" required><br><br>
+		
+        <button id="unique-button" class="unique-button" onclick="loadSite()">نمایش پروژه</button>
+		
+		<button id="fixed-link-button" class="unique-button" onclick="loadFixedLink()">نقشه</button>
+		 <input type="hidden" id="combinedText" name="combinedText">
+		
+     <form id="myForm" method="POST">
+        <label for="variableInput">نام آلبوم</label><br>
+        <input type="text" id="variableInput2" placeholder="نام آلبوم ساخته شده" required><br><br>
+		<label for="projectArea">متراژ پروژه</label><br>
+<input type="text" id="projectAreaInput" class="project-area" name="projectArea" placeholder="متراژ پروژه را وارد کنید"><br><br>
+<div>
+    <label for="projectTitle">عنوان پروژه:</label>
+    <input type="text" id="projectTitle" name="projectTitle">
+  </div>
+  <div>
+    <label for="projectCoordinates">مختصات پروژه (طول و عرض جغرافیایی):</label>
+    <input type="text" id="projectCoordinates" name="projectCoordinates" placeholder="35.7123, 51.3732">
+  </div>
+  <div>
+		 <input type="submit" value="انتشار">
+
+        <!-- فیلد مخفی برای ذخیره متن ترکیب شده -->
+        <input type="hidden" id="combinedText2" name="combinedText">
+        
+        <!-- فیلد مخفی برای ذخیره دسته‌بندی‌ها -->
+        <input type="hidden" id="categories" name="categories">
+
+        <!-- فیلد مخفی برای شناسه فرم -->
+        <input type="hidden" id="formId" name="formId" value="فرم یک">
+		
+        <!-- پنل آکاردئونی دسته اول: نوع کاربری -->
+        <div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">نوع کاربری</div>
+            <div class="accordion-content">
+                <label><input type="checkbox" name="userType[]" value="مسکونی"> مسکونی</label><br>
+                <label><input type="checkbox" name="userType[]" value="ویلایی"> ویلایی</label><br>
+                <label><input type="checkbox" name="userType[]" value="تجاری"> تجاری</label><br>
+				<label><input type="checkbox" name="userType[]" value="اداری"> اداری</label><br>
+				<label><input type="checkbox" name="userType[]" value="خدماتی"> خدماتی</label><br>
+            </div>
+        </div>
+		 <div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">مصالح</div>
+            <div class="accordion-content">
+                <label><input type="checkbox" name="userType[]" value="سنگ"> سنگ</label><br>
+                <label><input type="checkbox" name="userType[]" value="آجر"> آجر</label><br>
+                <label><input type="checkbox" name="userType[]" value="کامپوزیت"> کامپوزیت</label><br>
+				<label><input type="checkbox" name="userType[]" value="کاشی و سرامیک"> کاشی و سرامیک</label><br>
+				<label><input type="checkbox" name="userType[]" value="پارکت"> پارکت</label><br>
+				<label><input type="checkbox" name="userType[]" value="کف پوشکف پوش"> کف پوش</label><br>
+                <label><input type="checkbox" name="userType[]" value="گچ برگ"> گچ برگ</label><br>
+                <label><input type="checkbox" name="userType[]" value="پی وی سی"> پی وی سی</label><br>
+				<label><input type="checkbox" name="userType[]" value="پنل گچی"> پنل گچی</label><br>
+				<label><input type="checkbox" name="userType[]" value="کاغذ دیواری"> کاغذ دیواری</label><br>
+				<label><input type="checkbox" name="userType[]" value="پلاستر"> پلاستر</label><br>
+				<label><input type="checkbox" name="userType[]" value="چوب"> چوب</label><br>
+            </div>
+        </div>
+
+        <!-- پنل آکاردئونی دسته دوم: نوع سازه -->
+        <div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">نوع سازه</div>
+            <div class="accordion-content">
+                <label><input type="checkbox" name="structureType[]" value="فولادی"> فولادی</label><br>
+                <label><input type="checkbox" name="structureType[]" value="بتنی"> بتنی</label><br>
+				<label><input type="checkbox" name="structureType[]" value="lsf"> lsf</label><br>
+            </div>
+        </div>
+		 <div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">نوع تراکم</div>
+            <div class="accordion-content">
+                <label><input type="checkbox" name="structureType[]" value="کوتاه مرتبه"> کوتاه مرتبه</label><br>
+                <label><input type="checkbox" name="structureType[]" value="میان مرتبه"> میان مرتبه</label><br>
+				<label><input type="checkbox" name="structureType[]" value="بلند مرتبه"> بلند مرتبه</label><br>
+            </div>
+        </div>
+		<div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">وضع موجود</div>
+            <div class="accordion-content">
+                <label><input type="checkbox" name="structureType[]" value="باز سازی"> باز سازی</label><br>
+                <label><input type="checkbox" name="structureType[]" value="نوسازی"> نوسازی</label><br>
+				<label><input type="checkbox" name="structureType[]" value="نیمه کاره"> نیمه کاره</label><br>
+				<label><input type="checkbox" name="structureType[]" value="فاز صفر"> فاز صفر</label><br>
+            </div>
+	    </div>
+		<div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">انواع پروژه</div>
+			<div class="accordion-content">
+                <label><input type="checkbox" name="structureType[]" value="طراحی داخلی"> طراحی داخلی</label><br>
+                <label><input type="checkbox" name="structureType[]" value="طراحی نما"> طراحی نما</label><br>
+				<label><input type="checkbox" name="structureType[]" value="طراحی محوطه سازی"> طراحی محوطه سازی</label><br>
+				<label><input type="checkbox" name="structureType[]" value="طراحی فضای سبز"> طراحی فضای سبز</label><br>
+            </div>
+        </div>
+		<div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">سبک</div>
+			<div class="accordion-content">
+                <label><input type="checkbox" name="structureType[]" value="مدرن"> مدرن</label><br>
+                <label><input type="checkbox" name="structureType[]" value="کلاسیک"> کلاسیک</label><br>
+				<label><input type="checkbox" name="structureType[]" value="ایرانی"> ایرانی</label><br>
+				<label><input type="checkbox" name="structureType[]" value="های تک"> های تک</label><br>
+            </div>
+        </div>
+		<div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">منطقه جغرافیایی</div>
+			<div class="accordion-content">
+                <label><input type="checkbox" name="structureType[]" value="کرمان"> کرمان</label><br>
+                <label><input type="checkbox" name="structureType[]" value="استان"> استان</label><br>
+				<label><input type="checkbox" name="structureType[]" value="ایران"> ایران</label><br>
+				<label><input type="checkbox" name="structureType[]" value="بین المللی"> بین المللی</label><br>
+            </div>
+        </div>
+
+       
+    </form>
+	 </div>
+	<script src="x/manger form.js" defer></script> <!-- لینک به فایل JavaScript -->
+</body>
+</html>
