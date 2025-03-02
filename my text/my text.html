@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>MY text</title>
+    <link rel="stylesheet" href="file/engines/masage styles.css">
+</head>
+<body>
+    <form id="myForm" method="POST">
+        <label for="name">عنوان:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="phone">در رابطه با:</label>
+        <input type="tel" id="phone" name="phone" required><br><br>
+		<label for="message">توضیحات تکمیلی:</label>
+<textarea id="message" name="message" required></textarea><br><br>
+
+
+        <input type="hidden" id="ipAddress" name="ipAddress">
+        <input type="hidden" id="location" name="location">
+        <input type="hidden" id="browserInfo" name="browserInfo">
+
+        <input type="submit" value="ارسال">
+    </form>
+
+    <script src="file/engines/masage script.js"></script>
+</body>
+</html>

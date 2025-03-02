@@ -1,0 +1,59 @@
+body {
+    font-family: Arial, sans-serif;
+    direction: rtl;
+    background-color: #0000;
+    margin: 0;
+    padding: 0;
+}
+
+form {
+    width: 90%; /* عرض فرم را به 90% صفحه تنظیم کنید */
+    max-width: 400px; /* حداکثر عرض فرم */
+    margin: 50px auto;
+    padding: 20px;
+    background: #5509954a;
+    border-radius: 40px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 1px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 40px;
+    cursor: pointer;
+    width: 100%; /* عرض دکمه به اندازه کامل فرم */
+    box-sizing: border-box;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* تنظیمات آیفریم */
+iframe {
+    width: 100%; /* عرض آیفریم به اندازه 100% صفحه */
+    height: auto; /* ارتفاع آیفریم به صورت خودکار */
+    border: none;
+    max-width: 100%; /* حداکثر عرض 100% صفحه */
+    display: block; /* برای جلوگیری از فاصله‌های اضافی */
+}
