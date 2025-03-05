@@ -30,7 +30,7 @@ function toggleAccordion(event) {
     }
 }
 
-const scriptURL = "https://script.google.com/macros/s/AKfycbxev2GeoPyYQUEhLphZ-e1c7k1ILjupD4zSUoQIx-pWfB76kWIJVITM9OD5z5SlwFNYbw/exec";
+const scriptURL = "https://script.google.com/macros/s/AKfycbw7v8t5OEQyPrq3Y4y71_UNTQ5vYEJEldESK9A-P3zzZqbn8N4cUQ3lNPDfdN0njF1GHg/exec";
 
 function collectCheckboxValues() {
     var fixedText1 = "https://srswebsite.github.io/P/"; // متن ثابت اول
@@ -44,6 +44,10 @@ function collectCheckboxValues() {
 
     // گرفتن مقادیر عنوان پروژه و مختصات
     var projectTitle = document.getElementById("projectTitle").value;
+	var projectTitle_a = document.getElementById("projectTitle_a").value;
+	var projectTitle_b = document.getElementById("projectTitle_b").value;
+	var projectTitle_c = document.getElementById("projectTitle_c").value;
+	var projectTitle_d = document.getElementById("projectTitle_d").value;
     var projectCoordinates = document.getElementById("projectCoordinates").value;
 
     // قرار دادن متن نهایی و گزینه‌های انتخاب شده در فیلدهای مخفی
@@ -53,6 +57,10 @@ function collectCheckboxValues() {
     // ساخت یک شیء FormData برای ارسال داده‌ها
     var formData = new FormData(document.getElementById("myForm"));
     formData.set('projectTitle', projectTitle);
+	formData.set('projectTitle_a', projectTitle_a);
+	formData.set('projectTitle_b', projectTitle_b);
+	formData.set('projectTitle_c', projectTitle_c);
+	formData.set('projectTitle_d', projectTitle_d);
     formData.set('projectCoordinates', projectCoordinates);
 }
 
@@ -106,3 +114,10 @@ function loadSite() {
     var siteFrame = document.getElementById("unique-siteFrame");
     siteFrame.src = finalText;
 }
+ function loadFixedLink() {
+            var fixedLink = "map.html"; // لینک ثابت
+
+            // نمایش لینک ثابت در آیفریم
+            var siteFrame = document.getElementById("unique-siteFrame");
+            siteFrame.src = fixedLink;
+        }
