@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>فرم انتشار</title>
+	 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Vazir:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="x/personal form.css"> <!-- لینک به فایل CSS -->
+    
+</head>
+<body>
+<div class="container">
+        
+        
+        <iframe id="unique-siteFrame" class="unique-iframe" src="" title="نمایش سایت"></iframe>
+    </div>
+<button id="sidebar-toggle"><i class="fas fa-bars"></i></button>
+ <div id="sidebar">
+    <header>
+      <span>پنل کنترل و انتشار پروژه</span>
+    </header>
+    <div class="content">
+      <div class="accordion">
+        <button>منو</button>
+        <div class="panel">
+         <a href="index.html">پنل مدیر</a>
+          <a href="01_Pic editor.html">ادیتور عکس</a>
+          <a href="02_Pic uploader.html">آپلود عکس</a>
+          <a href="03_pro maker.html">ساخت پروژه</a>
+          <a href="04_pro uploader.html">آپلود پروژه</a>
+          <a href="05_manger form.html">فرم مجوز انتشار</a>
+		  <a href="https://srswebsite.github.io/g/full gallery">FULL GALLERY</a>
+		  <a href="https://srswebsite.github.io/g/map gallery">MAPP GALLERY</a>
+		   <a href="https://sr1369sr.github.io/MANAGER/Club/info form.html">باشگاه مشتریان</a>
+		   <a href="https://docs.google.com/spreadsheets/d/1jdyH4LdlOpqj-SxX5F5lUVH7fAQmnmVHBwmIbIbaMpk/edit?usp=sharing">جدول دیتا بیس</a>
+        </div>
+      </div>
+    </div>
+	
+	<!-- فیلد ورودی با متن ثابت -->
+        <label for="variableInput">نام پروفایل</label><br>
+        <input type="text" id="variableInput" class="unique-input" placeholder="نام پروفایل پرسنل را وارد کنید" required><br><br>
+		
+        <button id="unique-button" class="unique-button" onclick="loadSite()">نمایش پروفایل پرسنل</button>
+		
+		<button id="fixed-link-button" class="unique-button" onclick="loadFixedLink()">نقشه</button>
+		 <input type="hidden" id="combinedText" name="combinedText">
+		
+     <form id="myForm" method="POST">
+	 <div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">اطلاعات پایه</div>
+            <div class="accordion-content">
+        <label for="variableInput">نام آلبوم پرسنل</label><br>
+        <input type="text" id="variableInput2" placeholder="نام آلبوم ساخته شده" required><br><br>
+		<label for="projectArea">شماره تماس</label><br>
+<input type="text" id="projectAreaInput" class="project-area" name="projectArea" placeholder="شماره تماس"><br><br>
+<div>
+    <label for="projectTitle">نام واحد صنفی:</label>
+    <input type="text" id="projectTitle" name="projectTitle">
+    <label for="projectTitle_a">زمینه فعالیت:</label>
+    <input type="text" id="projectTitle_a" name="projectTitle_a">
+	<label for="projectTitle_b">شهر و محدوده فعالیت:</label>
+    <input type="text" id="projectTitle_b" name="projectTitle_b">
+	<label for="projectTitle_c">شرایط پرداخت</label>
+    <input type="text" id="projectTitle_c" name="projectTitle_c" placeholder="شرایط پرداخت اقساط یا نقد">
+	<label for="projectTitle_d">شرح خدمات:</label>
+    <input type="text" id="projectTitle_d" name="projectTitle_d" placeholder="متن کوتاه خدمات">
+	
+  </div>
+  <div>
+    <label for="projectCoordinates">مختصات پروژه (طول و عرض جغرافیایی):</label>
+    <input type="text" id="projectCoordinates" name="projectCoordinates" placeholder="35.7123, 51.3732">
+  </div>
+  <div>
+		 <input type="submit" value="انتشار">
+
+        <!-- فیلد مخفی برای ذخیره متن ترکیب شده -->
+        <input type="hidden" id="combinedText2" name="combinedText">
+        
+        <!-- فیلد مخفی برای ذخیره دسته‌بندی‌ها -->
+        <input type="hidden" id="categories" name="categories">
+
+        <!-- فیلد مخفی برای شناسه فرم -->
+        <input type="hidden" id="formId" name="formId" value="فرم یک">
+		
+        <!-- پنل آکاردئونی دسته اول: نوع کاربری -->
+		</div>
+        </div>
+		  <div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">پیمانکاران</div>
+            <div class="accordion-content">
+                <div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">پیمانکاران عمومی</div>
+            <div class="accordion-content">
+                <label><input type="checkbox" name="userType[]" value="پیمانکار پروژه‌های ساختمانی مسکونی">پیمانکار پروژه‌های ساختمانی مسکونی</label><br>
+                <label><input type="checkbox" name="userType[]" value="پیمانکار پروژه‌های تجاری و اداری">پیمانکار پروژه‌های تجاری و اداری</label><br>
+                <label><input type="checkbox" name="userType[]" value="پیمانکار پروژه‌های صنعتی">پیمانکار پروژه‌های صنعتی</label><br>
+				<label><input type="checkbox" name="userType[]" value="پیمانکار پروژه‌های زیربنایی و عمرانی">پیمانکار پروژه‌های زیربنایی و عمرانی</label><br>
+				<label><input type="checkbox" name="userType[]" value="پیمانکار نوسازی و بازسازی">پیمانکار نوسازی و بازسازی</label><br>
+            </div>
+        </div>
+        <div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">پیمان کار زیرساخت</div>
+            <div class="accordion-content">
+                <label><input type="checkbox" name="userType[]" value="پیمانکار تخریب">پیمانکار تخریب</label><br>
+                <label><input type="checkbox" name="userType[]" value="پیمانکار فونداسیون">پیمانکار فونداسیون</label><br>
+                <label><input type="checkbox" name="userType[]" value="پیمانکار گودبرداری">پیمانکار گودبرداری</label><br>
+            </div>
+        </div>
+		 <div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">پیمانکار تاسیسات مکانیکی</div>
+            <div class="accordion-content">
+                <label><input type="checkbox" name="userType[]" value="پیمانکار لوله‌کشی آب و فاضلاب">پیمانکار لوله‌کشی آب و فاضلاب</label><br>
+                <label><input type="checkbox" name="userType[]" value="پیمانکار گرمایشی و سرمایشی">پیمانکار گرمایشی و سرمایشی</label><br>
+                <label><input type="checkbox" name="userType[]" value="پیمانکار سیستم‌های تهویه مطبوع و هواساز">پیمانکار سیستم‌های تهویه مطبوع و هواساز</label><br>
+				<label><input type="checkbox" name="userType[]" value="پیمانکار گازرسانی و لوله‌کشی گاز">پیمانکار گازرسانی و لوله‌کشی گاز</label><br>
+            </div>
+        </div>
+
+        <!-- پنل آکاردئونی دسته دوم: نوع سازه -->
+        <div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">پیمانکاران تأسیسات برقی</div>
+            <div class="accordion-content">
+                <label><input type="checkbox" name="structureType[]" value="پیمانکار سیم‌کشی و تابلو برق">پیمانکار سیم‌کشی و تابلو برق</label><br>
+                <label><input type="checkbox" name="structureType[]" value="پیمانکار سیستم‌های روشنایی و نورپردازی">پیمانکار سیستم‌های روشنایی و نورپردازی </label><br>
+				<label><input type="checkbox" name="structureType[]" value="پیمانکار سیستم‌های امنیتی">پیمانکار سیستم‌های امنیتی</label><br>
+            </div>
+        </div>
+		 <div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">پیمانکاران نازک‌کاری و دکوراسیون</div>
+            <div class="accordion-content">
+                <label><input type="checkbox" name="structureType[]" value="پیمانکار گچ‌کاری و سقف کاذب">پیمانکار گچ‌کاری و سقف کاذب</label><br>
+                <label><input type="checkbox" name="structureType[]" value="پیمانکار کاشی‌کاری و سرامیک">پیمانکار کاشی‌کاری و سرامیک</label><br>
+				<label><input type="checkbox" name="structureType[]" value="پیمانکار رنگ‌آمیزی و نقاشی ساختمان">پیمانکار رنگ‌آمیزی و نقاشی ساختمان</label><br>
+				<label><input type="checkbox" name="structureType[]" value="پیمانکار کاغذ دیواری و دیوارپوش‌ها">پیمانکار کاغذ دیواری و دیوارپوش‌ها</label><br>
+				<label><input type="checkbox" name="structureType[]" value="پیمانکار دکوراتیو کابینت کمد">پیمانکار دکوراتیو کابینت کمد</label><br>
+            </div>
+        </div>
+		<div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">پیمانکاران محوطه‌سازی و نما</div>
+            <div class="accordion-content">
+                <label><input type="checkbox" name="structureType[]" value="پیمانکار نمای سنگی، آجری و شیشه‌ای">پیمانکار نمای سنگی، آجری و شیشه‌ای</label><br>
+                <label><input type="checkbox" name="structureType[]" value="پیمانکار نمای کامپوزیت و سرامیک خشک">پیمانکار نمای کامپوزیت و سرامیک خشک</label><br>
+				<label><input type="checkbox" name="structureType[]" value="پیمانکار محوطه‌سازی و فضای سبز">پیمانکار محوطه‌سازی و فضای سبز</label><br>
+				<label><input type="checkbox" name="structureType[]" value="پیمانکار کف‌سازی و سنگ‌فرش معابر">پیمانکار کف‌سازی و سنگ‌فرش معابر</label><br>
+            </div>
+	    </div>
+		<div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">پیمانکاران ایمنی و مقاوم‌سازی</div>
+			<div class="accordion-content">
+                <label><input type="checkbox" name="structureType[]" value="پیمانکار عایق‌کاری حرارتی و صوتی">پیمانکار عایق‌کاری حرارتی و صوتی</label><br>
+                <label><input type="checkbox" name="structureType[]" value="پیمانکار ضدحریق و سیستم‌های اعلام و اطفای حریق">پیمانکار ضدحریق و سیستم‌های اعلام و اطفای حریق</label><br>
+				<label><input type="checkbox" name="structureType[]" value="پیمانکار مقاوم‌سازی در برابر زلزله">پیمانکار مقاوم‌سازی در برابر زلزله</label><br>
+            </div>
+        </div>
+            </div>
+        </div>
+		<!-- لتامین کنندگان --><!-- لتامین کنندگان --><!-- لتامین کنندگان --><!-- لتامین کنندگان --><!-- لتامین کنندگان -->
+		 <div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">تامین کنندگان</div>
+            <div class="accordion-content">
+		<div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">اول ایمنی</div>
+            <div class="accordion-content">
+                <label><input type="checkbox" name="userType[]" value="تجهیزات ایمنی و حفاظت کارگران">تجهیزات ایمنی و حفاظت کارگران</label><br>
+                
+            </div>
+        </div>
+		<div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">مصالح پایه</div>
+            <div class="accordion-content">
+                <label><input type="checkbox" name="userType[]" value="مصالح فروشی سیمان و بتن">مصالح فروشی سیمان و بتن</label><br>
+                <label><input type="checkbox" name="userType[]" value="نمایندگی روش سیمان فله و پاکتی">نمایندگی روش سیمان فله و پاکتی</label><br>
+                <label><input type="checkbox" name="userType[]" value="شرکت بتن ریزی">شرکت بتن ریزی</label><br>
+				<label><input type="checkbox" name="userType[]" value="فروشگاه قطعات بتنی پیش‌ساخته">فروشگاه قطعات بتنی پیش‌ساخته</label><br>
+				
+            </div>
+        </div>
+		<div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">مصالح آجر و سفال</div>
+            <div class="accordion-content">
+                <label><input type="checkbox" name="userType[]" value="کارگاه آجر و سفال">کارگاه آجر و سفال</label><br>
+                <label><input type="checkbox" name="userType[]" value="نمایندگی فروش آجر فشاری، آجر سفالی، آجر ماشینی">نمایندگی فروش آجر فشاری، آجر سفالی، آجر ماشینی</label><br>
+                <label><input type="checkbox" name="userType[]" value="کارگاه بلوک سیمانی و بلوک سبک">کارگاه بلوک سیمانی و بلوک سبک </label><br>
+            </div>
+        </div>
+		<div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">مصالح شن، ماسه، پوکه و گچ</div>
+            <div class="accordion-content">
+                <label><input type="checkbox" name="userType[]" value="معدن شن و ماسه">معدن شن و ماسه</label><br>
+                <label><input type="checkbox" name="userType[]" value="فروشنده گچ ساختمانی">فروشنده گچ ساختمانی </label><br>
+				<label><input type="checkbox" name="userType[]" value="فروشنده پوکه معدنی و صنعتی">فروشنده پوکه معدنی و صنعتی</label><br>
+                
+            </div>
+			<div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">آهن آلات فولاد و میلگرد</div>
+            <div class="accordion-content">
+                <label><input type="checkbox" name="userType[]" value="فروشنده آهن آلات ساختمانی">فروشنده آهن آلات ساختمانی</label><br>
+            </div>
+        </div>
+		<div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">مصالح فروشی سنگ</div>
+            <div class="accordion-content">
+                <label><input type="checkbox" name="userType[]" value="مصالح فروشی سنگ">مصالح فروشی سنگ</label><br>
+            </div>
+        </div>
+		<div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">فروشندگان قالب و تجهیزات بتن‌ریزی</div>
+            <div class="accordion-content">
+                <label><input type="checkbox" name="userType[]" value="فروشگاه قالب و تجهیزات بتن‌ریزی">فروشگاه قالب و تجهیزات بتن‌ریزی</label><br>
+            </div>
+        </div>
+		<div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">تأمین‌کنندگان سیستم‌های سبک‌سازی و سقف‌های نوین</div>
+            <div class="accordion-content">
+                <label><input type="checkbox" name="userType[]" value="تولید کننده سقف‌های عرشه فولادی و تیرچه بلوک">تولید کننده سقف‌های عرشه فولادی و تیرچه بلوک</label><br>
+				<label><input type="checkbox" name="userType[]" value="فروشگاه یونولیت ساختمانی و ساندویچ پانل">فروشگاه یونولیت ساختمانی و ساندویچ پانل</label><br>
+            </div>
+        </div>
+		<div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">فروشنده درب، پنجره </div>
+            <div class="accordion-content">
+                <label><input type="checkbox" name="userType[]" value="فروشگاه درب ضد سرقت و درب چوبی">فروشگاه درب ضد سرقت و درب چوبی</label><br>
+				<label><input type="checkbox" name="userType[]" value="فروشگاه پنجره‌های UPVC و آلومینیومی  ">فروشگاه پنجره‌های UPVC و آلومینیومی  </label><br>
+				<label><input type="checkbox" name="userType[]" value="فروشگاه شیشه‌های ساختمانی">فروشگاه شیشه‌های ساختمانی</label><br>
+            </div>
+        </div>
+		<div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">تولیدکنندگان و فروشندگان نمای ساختمان</div>
+            <div class="accordion-content">
+                <label><input type="checkbox" name="userType[]" value="فروشگاه نمای کامپوزیت، شیشه‌ای و سنگی">فروشگاه نمای کامپوزیت، شیشه‌ای و سنگی</label><br>
+				<label><input type="checkbox" name="userType[]" value="فروشگاه چوب ترموود و سرامیک نما">فروشگاه چوب ترموود و سرامیک نما</label><br>
+				<label><input type="checkbox" name="userType[]" value="فروشگاه چسب‌های تخصصی نما و فلاشینگ">فروشگاه چسب‌های تخصصی نما و فلاشینگ</label><br>
+            </div>
+        </div>
+		<div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">تأمین‌کنندگان سیستم‌های گرمایشی و سرمایشی</div>
+            <div class="accordion-content">
+                <label><input type="checkbox" name="userType[]" value="فروشگاه پکیج، رادیاتور و شوفاژ چیلر و سیستم‌های VRF کولرهای گازی و داکت اسپلیت">فروشگاه پکیج، رادیاتور و شوفاژ چیلر و سیستم‌های VRF کولرهای گازی و داکت اسپلیت</label><br>
+				
+            </div>
+        </div>
+		<div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">فروشندگان تجهیزات بهداشتی و سرویس‌های بهداشتی</div>
+            <div class="accordion-content">
+                <label><input type="checkbox" name="userType[]" value="فروشندگان تولیدکنندگان چینی‌آلات بهداشتی">فروشندگان تولیدکنندگان چینی‌آلات بهداشتی</label><br>
+				<label><input type="checkbox" name="userType[]" value="فروشندگان لوازم و شیرآلات ساختمانی">فروشندگان لوازم و شیرآلات ساختمانی</label><br>
+				
+            </div>
+        </div>
+		
+		<div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">تأمین‌کنندگان پوشش‌های داخلی و نازک‌کاری</div>
+            <div class="accordion-content">
+                <label><input type="checkbox" name="userType[]" value="فروشندگان کاشی و سرامیک">فروشندگان کاشی و سرامیک</label><br>
+				<label><input type="checkbox" name="userType[]" value="فروشندگان کفپوش PVC و پارکت لمینت">فروشندگان کفپوش PVC و پارکت لمینت</label><br>
+				<label><input type="checkbox" name="userType[]" value="تأمین‌کنندگان موکت، کفپوش اپوکسی و سنگ مصنوعی">تأمین‌کنندگان موکت، کفپوش اپوکسی و سنگ مصنوعی</label><br>
+				<label><input type="checkbox" name="userType[]" value="تأمین‌کنندگان کاغذ دیواری و دیوارپوش‌های سه‌بعدی">تأمین‌کنندگان کاغذ دیواری و دیوارپوش‌های سه‌بعدی</label><br>
+				<label><input type="checkbox" name="userType[]" value="تأمین‌کنندگان کناف و پانل‌های گچی">تأمین‌کنندگان کناف و پانل‌های گچی </label><br>
+				<label><input type="checkbox" name="userType[]" value="تولیدکنندگان دیوارهای پیش‌ساخته بتنی و ساندویچ پانل">تولیدکنندگان دیوارهای پیش‌ساخته بتنی و ساندویچ پانل</label><br>
+				
+            </div>
+        </div>
+		<div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">تأمین‌کنندگان تجهیزات الکتریکی و روشنایی</div>
+            <div class="accordion-content">
+                <label><input type="checkbox" name="userType[]" value="فروشندگان سیم و کابل برق">فروشندگان سیم و کابل برق</label><br>
+				<label><input type="checkbox" name="userType[]" value="تأمین‌کنندگان تابلو برق و قطعات الکتریکی">تأمین‌کنندگان تابلو برق و قطعات الکتریکی</label><br>
+				<label><input type="checkbox" name="userType[]" value="فروشندگان سیستم‌های هوشمند روشنایی">فروشندگان سیستم‌های هوشمند روشنایی</label><br>
+				<label><input type="checkbox" name="userType[]" value="فروشندگان دوربین‌های مدار بسته و دزدگیر">فروشندگان دوربین‌های مدار بسته و دزدگیر</label><br>
+				<label><input type="checkbox" name="userType[]" value="تأمین‌کنندگان درب‌های اتوماتیک و سیستم‌های کنترل دسترسی">تأمین‌کنندگان درب‌های اتوماتیک و سیستم‌های کنترل دسترسی</label><br>
+				<label><input type="checkbox" name="userType[]" value="تأمین‌کنندگان ماشین‌آلات و ابزارآلات ساختمانی">تأمین‌کنندگان ماشین‌آلات و ابزارآلات ساختمانی</label><br>
+				
+            </div>
+        </div>
+		<div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">تأمین‌کنندگان ماشین‌آلات ساختمانی</div>
+            <div class="accordion-content">
+                <label><input type="checkbox" name="userType[]" value="فروشندگان ماشین‌آلات ساختمانی">فروشندگان ماشین‌آلات ساختمانی</label><br>
+				</div>
+        </div>
+		</div>
+        </div>
+    </form>
+	 </div>
+	<script src="x/personal form.js" defer></script> <!-- لینک به فایل JavaScript -->
+</body>
+</html>
