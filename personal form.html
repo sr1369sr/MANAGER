@@ -2,7 +2,7 @@
 <html lang="fa">
 <head>
     <meta charset="UTF-8">
-    <title>فرم انتشار</title>
+    <title>فرم انتشار پروفایل و اطلاعات اعضا</title>
 	 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Vazir:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="x/personal form.css"> <!-- لینک به فایل CSS -->
@@ -17,9 +17,9 @@
 <button id="sidebar-toggle"><i class="fas fa-bars"></i></button>
  <div id="sidebar">
     <header>
-      <span>پنل کنترل و انتشار پروژه</span>
+      <span>فرم انتشار پروفایل و اطلاعات اعضا</span>
     </header>
-    <div class="content">
+   <div class="content">
       <div class="accordion">
         <button>منو</button>
         <div class="panel">
@@ -39,15 +39,43 @@
     </div>
 	
 	<!-- فیلد ورودی با متن ثابت -->
-        <label for="variableInput">نام پروفایل</label><br>
-        <input type="text" id="variableInput" class="unique-input" placeholder="نام پروفایل پرسنل را وارد کنید" required><br><br>
+        <label for="variableInput">نام پروژه</label><br>
+        <input type="text" id="variableInput" class="unique-input" placeholder="نام پروژه را وارد کنید" required><br><br>
 		
-        <button id="unique-button" class="unique-button" onclick="loadSite()">نمایش پروفایل پرسنل</button>
+        <button id="unique-button" class="unique-button" onclick="loadSite()">نمایش پروژه</button>
 		
 		<button id="fixed-link-button" class="unique-button" onclick="loadFixedLink()">نقشه</button>
 		 <input type="hidden" id="combinedText" name="combinedText">
-		<div>
-		 <input type="submit" value="انتشار">
+		
+		
+     <form id="myForm" method="POST">
+	  <input type="submit" value="انتشار">
+	   <div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">اطلاعات اولیه</div>
+            <div class="accordion-content">
+        <label for="variableInput">نام پروفایل پرسنل</label><br>
+        <input type="text" id="variableInput2" placeholder="نام پروفایل پرسنل مورد نظر" required><br><br>
+		<label for="projectArea">شماره تماس</label><br>
+<input type="text" id="projectAreaInput" class="project-area" name="projectArea"><br><br>
+<div>
+    <label for="projectTitle">نام واحد صنفی:</label>
+    <input type="text" id="projectTitle" name="projectTitle">
+    <label for="projectTitle_a">زمینه فعالیت:</label>
+    <input type="text" id="projectTitle_a" name="projectTitle_a">
+	<label for="projectTitle_b">شهر و محدوده فعالیت</label>
+    <input type="text" id="projectTitle_b" name="projectTitle_b">
+	<label for="projectTitle_c">شرایط پرداخت</label>
+    <input type="text" id="projectTitle_c" name="projectTitle_c">
+	<label for="projectTitle_d">شرح خدمات</label>
+    <input type="text" id="projectTitle_d" name="projectTitle_d">
+	
+  </div>
+  <div>
+    <label for="projectCoordinates">مختصات واحد صنفی</label>
+    <input type="text" id="projectCoordinates" name="projectCoordinates" placeholder="35.7123, 51.3732">
+  </div>
+  <div>
+		 
 
         <!-- فیلد مخفی برای ذخیره متن ترکیب شده -->
         <input type="hidden" id="combinedText2" name="combinedText">
@@ -57,37 +85,11 @@
 
         <!-- فیلد مخفی برای شناسه فرم -->
         <input type="hidden" id="formId" name="formId" value="فرم یک">
+		 </div>
+       </div>
 		
         <!-- پنل آکاردئونی دسته اول: نوع کاربری -->
-		</div>
-     <form id="myForm" method="POST">
-	 <div class="accordion">
-            <div class="accordion-header" onclick="toggleAccordion(this)">اطلاعات پایه</div>
-            <div class="accordion-content">
-        <label for="variableInput">نام آلبوم پرسنل</label><br>
-        <input type="text" id="variableInput2" placeholder="نام آلبوم ساخته شده" required><br><br>
-		<label for="projectArea">شماره تماس</label><br>
-<input type="text" id="projectAreaInput" class="project-area" name="projectArea" placeholder="شماره تماس"><br><br>
-<div>
-    <label for="projectTitle">نام واحد صنفی:</label>
-    <input type="text" id="projectTitle" name="projectTitle">
-    <label for="projectTitle_a">زمینه فعالیت:</label>
-    <input type="text" id="projectTitle_a" name="projectTitle_a">
-	<label for="projectTitle_b">شهر و محدوده فعالیت:</label>
-    <input type="text" id="projectTitle_b" name="projectTitle_b">
-	<label for="projectTitle_c">شرایط پرداخت</label>
-    <input type="text" id="projectTitle_c" name="projectTitle_c" placeholder="شرایط پرداخت اقساط یا نقد">
-	<label for="projectTitle_d">شرح خدمات:</label>
-    <input type="text" id="projectTitle_d" name="projectTitle_d" placeholder="متن کوتاه خدمات">
-	
-  </div>
-  <div>
-    <label for="projectCoordinates">مختصات پروژه (طول و عرض جغرافیایی):</label>
-    <input type="text" id="projectCoordinates" name="projectCoordinates" placeholder="35.7123, 51.3732">
-  </div>
-  
-        </div>
-		  <div class="accordion">
+        <div class="accordion">
             <div class="accordion-header" onclick="toggleAccordion(this)">پیمانکاران</div>
             <div class="accordion-content">
                 <div class="accordion">
@@ -282,6 +284,8 @@
         </div>
 		</div>
         </div>
+
+       
     </form>
 	 </div>
 	<script src="x/personal form.js" defer></script> <!-- لینک به فایل JavaScript -->
