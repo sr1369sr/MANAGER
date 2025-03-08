@@ -30,7 +30,7 @@ function toggleAccordion(event) {
     }
 }
 
-const scriptURL = "https://script.google.com/macros/s/AKfycbwgcUAHG9PV8n73FHcRrhDW9LhTDXlChtboBGUGmc5yzQoeYAOjmAGOFqH5CGQE8bB07g/exec";
+const scriptURL = "https://script.google.com/macros/s/AKfycbwSEoj3Qw1DCxF5tQICivkUowAUT1tpV32VkkAWTMn8b5nbJ1kJV6iXG-sGqu273vmR/exec";
 
 function collectCheckboxValues() {
     var fixedText1 = "https://srswebsite.github.io/P/"; // متن ثابت اول
