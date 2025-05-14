@@ -18,25 +18,47 @@
       box-shadow: inset 3px 3px 8px rgba(0, 0, 0, 0.2), inset -3px -3px 8px rgba(255, 255, 255, 0.7);
       transform: scale(1.1);
     }
+	#sidebar-toggle.open {
+  background: #ff4d4f; /* قرمز */
+  color: white;
+}
 
-    #sidebar {
-      position: fixed;
-      top: 0;
-      right: -100%;
-      height: 100%;
-      width: 350px;
-      overflow-y: auto;
-	  overflow-x: hidden; /* غیرفعال‌سازی پیمایش افقی */
-      transition: right 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-      z-index: 1000;
-     
-      background: #e0e5ec;
-      box-shadow: -10px 0px 30px rgba(0, 0, 0, 0.2);
-    }
+#sidebar-toggle.open:hover {
+  box-shadow: inset 3px 3px 8px rgba(0, 0, 0, 0.2), inset -3px -3px 8px rgba(255, 255, 255, 0.7);
+  transform: scale(1.1);
+}
 
-    #sidebar.open {
-      right: 0;
-    }
+
+  #sidebar {
+  position: fixed;
+  top: 0;
+  right: -350px;
+  height: 100%;
+  width: 350px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transition: right 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  z-index: 1000;
+  background: #e0e5ec;
+  box-shadow: -10px 0px 30px rgba(0, 0, 0, 0.2);
+}
+
+#sidebar.open {
+  right: 0;
+}
+
+/* 📱 موبایل و تبلت: سایدبار تمام عرض */
+@media (max-width: 1024px) {
+  #sidebar {
+    width: 100vw;
+    right: -100vw;
+  }
+
+  #sidebar.open {
+    right: 0;
+  }
+}
+
 
     #sidebar header {
       padding: 7px;
@@ -55,19 +77,20 @@
       font-weight: bold;
     }
 	
+	
  .accordion {
   margin: 20px 15px;
 }
 
 .accordion button {
-  width: 100%;
-  color: #006aff;
+width: 100%;
+  color: #fff;
   padding: 5px;
-  background: #e0e5ec;
+  background: #a414a1;
   border: none;
   border-radius: 12px;
   text-align: center;
-  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2), -3px -3px 8px rgba(255, 255, 255, 0.7);
+  box-shadow: 3px 3px 8px rgba(125, 17, 215, 0.5), -3px -3px 8px rgba(255, 20, 20, 0.7);
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 15px;
@@ -86,7 +109,7 @@
   visibility: hidden;
   opacity: 0;
   transition: max-height 0.3s ease-out, opacity 0.3s ease, visibility 0.3s ease;
-  background: #e0e5ec;
+  background: #c3d8f4;
   padding: 0; /* حذف پدینگ در حالت بسته */
   margin: 0; /* حذف مارجین در حالت بسته */
   border-radius: 12px;
@@ -144,11 +167,10 @@ form  {
 /* استایل ورودی‌ها */
 input[type="text"],
 input[type="hidden"] {
-    background-color: #f1f1f1; /* رنگ پس‌زمینه ورودی‌ها */
-    border: none; /* حذف مرز */
-    border-radius: 10px; /* گوشه‌های گرد */
-    box-shadow: inset 6px 6px 10px rgba(210, 210, 210, 0.5), 
-                inset -6px -6px 10px rgba(255, 255, 255, 1); /* سایه داخلی نئومورفیک */
+    background-color: #f9f9f9; /* رنگ دکمه */
+  border: none;
+  border-radius: 10px;
+  box-shadow: inset 6px 6px 10px rgba(255, 255, 255, 0.5), inset -6px -6px 10px rgb(110, 153, 255);
     padding: 10px;
     width: calc(100% - 20px); /* عرض ورودی‌ها */
     margin-bottom: 10px; /* فاصله پایین ورودی‌ها کمتر شده است */
