@@ -2,10 +2,10 @@
 <html lang="fa">
 <head>
     <meta charset="UTF-8">
-    <title>فرم انتشار</title>
+    <title>فرم انتشار پروژه های طراحی</title>
 	 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Vazir:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="x/manger form.css"> <!-- لینک به فایل CSS -->
+     <link rel="stylesheet" href="x/manger form.css"> <!-- لینک به فایل CSS -->
     
 </head>
 <body>
@@ -17,11 +17,14 @@
 <button id="sidebar-toggle"><i class="fas fa-bars"></i></button>
  <div id="sidebar">
     <header>
-      <span>پنل کنترل و انتشار پروژه</span>
+      <span>فرم انتشار پروژه های طراحی</span>
     </header>
    <div class="content">
+   
       <div class="accordion">
-        <button>منو</button>
+<button type="button">منو</button>
+
+		
         <div class="panel">
          <a href="index.html">پنل مدیر</a>
           <a href="01_Pic editor.html">ادیتور عکس</a>
@@ -36,53 +39,90 @@
 		   <a href="https://docs.google.com/spreadsheets/d/1jdyH4LdlOpqj-SxX5F5lUVH7fAQmnmVHBwmIbIbaMpk/edit?usp=sharing">جدول دیتا بیس</a>
         </div>
       </div>
-    </div>
-	
+	    <div class="content">
+      <div class="accordion">
+       <button type="button">گزارشات</button>
+
+        <div class="panel">
+         
+          <a href="https://docs.google.com/spreadsheets/d/1jdyH4LdlOpqj-SxX5F5lUVH7fAQmnmVHBwmIbIbaMpk/edit?usp=drive_link">جدول دیتا بیس</a>
+		
 	<!-- فیلد ورودی با متن ثابت -->
         <label for="variableInput">نام پروژه</label><br>
-        <input type="text" id="variableInput" class="unique-input" placeholder="نام پروژه را وارد کنید" required><br><br>
+        <input type="text" id="variableInput" class="unique-input" placeholder="نام دوره را وارد کنید" required><br><br>
 		
         <button id="unique-button" class="unique-button" onclick="loadSite()">نمایش پروژه</button>
 		
 		<button id="fixed-link-button" class="unique-button" onclick="loadFixedLink()">نقشه</button>
 		 <input type="hidden" id="combinedText" name="combinedText">
-		
-     <form id="myForm" method="POST">
-        <label for="variableInput">نام آلبوم</label><br>
-        <input type="text" id="variableInput2" placeholder="نام آلبوم ساخته شده" required><br><br>
-		<label for="projectArea">متراژ پروژه</label><br>
-<input type="text" id="projectAreaInput" class="project-area" name="projectArea" placeholder="متراژ پروژه را وارد کنید"><br><br>
-<div>
-    <label for="projectTitle">عنوان پروژه:</label>
-    <input type="text" id="projectTitle" name="projectTitle">
-    <label for="projectTitle_a">وضعیت پروژه:</label>
-    <input type="text" id="projectTitle_a" name="projectTitle_a" placeholder="باز یا بسته">
-	<label for="projectTitle_b">کارفرما:</label>
-    <input type="text" id="projectTitle_b" name="projectTitle_b" placeholder="نام کارفرما">
-	<label for="projectTitle_c">پیمانکار:</label>
-    <input type="text" id="projectTitle_c" name="projectTitle_c" placeholder="نام پیمانکار">
-	<label for="projectTitle_d">تامین کننده:</label>
-    <input type="text" id="projectTitle_d" name="projectTitle_d" placeholder="تامین کننده">
+		  
+        </div>
+      </div>
+    </div>
+    </div>
 	
-  </div>
-  <div>
-    <label for="projectCoordinates">مختصات پروژه (طول و عرض جغرافیایی):</label>
-    <input type="text" id="projectCoordinates" name="projectCoordinates" placeholder="35.7123, 51.3732">
-  </div>
-  <div>
-		 <input type="submit" value="انتشار">
+     <div class="accordion">
+ <button type="button" onclick="toggleAccordion()">فرم_1</button>
 
-        <!-- فیلد مخفی برای ذخیره متن ترکیب شده -->
+  <div class="panel" id="accordionPanel">
+  
+    <form id="myForm" method="POST">
+	 
+      <label for="variableInput">نام اسلایدر پروژه</label><br>
+      <input type="text" id="variableInput2" placeholder="نام اسلایدر پروژه" required><br><br>
+      <label for="variableInput3">نام فایل پروژه</label><br>
+      <input type="text" id="variableInput3" placeholder="نام فایل کامل پروژه" required><br><br>
+
+      <label for="projectArea">متراژ</label><br>
+      <input type="text" id="projectAreaInput" class="project-area" name="projectArea" placeholder="متراژ"><br><br>
+
+      <div>
+        <label for="projectTitle">عنوان بالای پروژه:</label>
+        <input type="text" id="projectTitle" name="projectTitle">
+       
+</div>
+</div>
+<div class="accordion">
+ <button type="button" onclick="toggleAccordion()">فرم_2</button>
+
+  <div class="panel" id="accordionPanel">
+   <label>وضعیت پروژه</label><br>
+<input type="radio" id="status_open" name="projectTitle_a" value="باز">
+<label for="status_open">باز</label><br>
+
+<input type="radio" id="status_closed" name="projectTitle_a" value="بسته">
+<label for="status_closed">بسته</label><br>
+
+        <label for="projectTitle_b">نام کار فرما:</label>
+        <input type="text" id="projectTitle_b" name="projectTitle_b" placeholder="نام کار فرما">
+        <label for="projectTitle_c">نام پیمانکار:</label>
+        <input type="text" id="projectTitle_c" name="projectTitle_c" placeholder="نام پیمانکار">
+        <label for="projectTitle_d">نام تامین کننده:</label>
+        <input type="text" id="projectTitle_d" name="projectTitle_d" placeholder="نام تامین کننده">
+      
+ 
+      <div>
+        <label for="projectCoordinates">مختصات پروژه (طول و عرض جغرافیایی):</label>
+        <input type="text" id="projectCoordinates" name="projectCoordinates" placeholder="35.7123, 51.3732">
+      </div>
+	  
+</div>
+</div>
+      <div>
+       
         <input type="hidden" id="combinedText2" name="combinedText">
-        
-        <!-- فیلد مخفی برای ذخیره دسته‌بندی‌ها -->
         <input type="hidden" id="categories" name="categories">
-
-        <!-- فیلد مخفی برای شناسه فرم -->
         <input type="hidden" id="formId" name="formId" value="فرم یک">
-		
+      </div>
+   
+ 
+<div class="accordion">
+  <button type="button" onclick="toggleAccordion()">دسته بندی_1</button>
+
+  <div class="panel" id="accordionPanel">
         <!-- پنل آکاردئونی دسته اول: نوع کاربری -->
-        <div class="accordion">
+		
+         <div class="accordion">
             <div class="accordion-header" onclick="toggleAccordion(this)">نوع کاربری</div>
             <div class="accordion-content">
                 <label><input type="checkbox" name="userType[]" value="مسکونی"> مسکونی</label><br>
@@ -109,7 +149,13 @@
 				<label><input type="checkbox" name="userType[]" value="چوب"> چوب</label><br>
             </div>
         </div>
+		</div>
+        </div>
+		
+<div class="accordion">
+  <button type="button" onclick="toggleAccordion()">دسته بند_2</button>
 
+  <div class="panel" id="accordionPanel">
         <!-- پنل آکاردئونی دسته دوم: نوع سازه -->
         <div class="accordion">
             <div class="accordion-header" onclick="toggleAccordion(this)">نوع سازه</div>
@@ -119,6 +165,9 @@
 				<label><input type="checkbox" name="structureType[]" value="lsf"> lsf</label><br>
             </div>
         </div>
+		
+		
+	  
 		 <div class="accordion">
             <div class="accordion-header" onclick="toggleAccordion(this)">نوع تراکم</div>
             <div class="accordion-content">
@@ -136,6 +185,12 @@
 				<label><input type="checkbox" name="structureType[]" value="فاز صفر"> فاز صفر</label><br>
             </div>
 	    </div>
+		</div>
+	    </div>
+		<div class="accordion">
+  <button type="button" onclick="toggleAccordion()">دسته بندی_3</button>
+
+  <div class="panel" id="accordionPanel">
 		<div class="accordion">
             <div class="accordion-header" onclick="toggleAccordion(this)">انواع پروژه</div>
 			<div class="accordion-content">
@@ -163,10 +218,14 @@
 				<label><input type="checkbox" name="structureType[]" value="بین المللی"> بین المللی</label><br>
             </div>
         </div>
-
+		 </div>
+	  </div>
+ <input type="submit" value="انتشار">
        
     </form>
-	 </div>
-	<script src="x/manger form.js" defer></script> <!-- لینک به فایل JavaScript -->
+	
+	  
+	   </div>
+ <script src="x/manger form.js" defer></script> <!-- لینک به فایل JavaScript -->
 </body>
 </html>
