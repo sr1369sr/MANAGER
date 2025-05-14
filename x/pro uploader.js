@@ -12,7 +12,7 @@
       });
     });
 
-  const apiUrl = 'https://script.google.com/macros/s/AKfycbxjmuQsgXjozBda92p2hQczcqFC7Wldp8Q_WrV9MSmafRDyfcm5QXJLVABIaos_gxPmCw/exec'; // آدرس وب اپ شما
+  const apiUrl = 'https://script.google.com/macros/s/AKfycbw2wtitSP0dV9QjzdbmuEiyyhCnRcGCxTcd9MfWw-ff5CRZvTr9WOWpVM24vxNS_jXchg/exec'; // آدرس وب اپ شما
         let currentFolderId = "1iRS2ErbSYARdKovWdEX-3F607N8XSjSu"; // شناسه پوشه اصلی
 		const sidebarToggle = document.getElementById('sidebar-toggle');
         const sidebar = document.getElementById('sidebar');
@@ -24,25 +24,26 @@
 
 
         // آپلود فایل
-        function uploadFile() {
-    const fileInput = document.getElementById('fileInput');
-    const files = fileInput.files; // حالا اینجا چند فایل می‌گیریم
-    if (files.length === 0) {
-        alert('لطفاً یک یا چند فایل انتخاب کنید.');
+        function uploadFiles() {
+    const input = document.getElementById('fileInput');
+    const files = input.files;
+
+    if (!files.length) {
+        alert('لطفاً یک پوشه را انتخاب کنید.');
         return;
     }
 
-    // برای هر فایل یک آپلود جداگانه انجام بده
     Array.from(files).forEach(file => {
         const reader = new FileReader();
 
-        reader.onloadend = function() {
+        reader.onload = function () {
             const base64data = reader.result.split(',')[1];
-
             const formData = new FormData();
+
             formData.append('action', 'upload');
             formData.append('fileData', base64data);
             formData.append('fileName', file.name);
+            formData.append('relativePath', file.webkitRelativePath); // مسیر پوشه
 
             fetch(apiUrl, {
                 method: 'POST',
@@ -50,17 +51,17 @@
             })
             .then(response => response.json())
             .then(data => {
-                alert('فایل با موفقیت آپلود شد.');
-                loadFileList();
+                console.log('آپلود موفق:', file.name);
             })
             .catch(error => {
-                alert('خطا در آپلود فایل.');
+                console.error('خطا در آپلود', file.name, error);
             });
         };
 
         reader.readAsDataURL(file);
     });
 }
+
 
   // تابع برای رفرش کردن آیفریم
     function refreshIframe() {
@@ -220,3 +221,58 @@ function downloadFile(fileId) {
 
         // بارگذاری لیست فایل‌ها هنگام بارگذاری صفحه
         loadFileList();
+		
+		 var selectedRepo = ''; // مسیر مخزن انتخاب شده
+
+        // تغییر مسیر بر اساس انتخاب مخزن
+        function setRepoPath() {
+            if (document.getElementById('repo1').checked) {
+                selectedRepo = 'P'; // مخزن پروژه‌ها
+            } else if (document.getElementById('repo2').checked) {
+                selectedRepo = 'advert'; // مخزن تبلیغات
+            } else {
+                selectedRepo = ''; // هیچ مخزنی انتخاب نشده
+            }
+        }
+
+        function uploadFileToGitHub() {
+    const fileName = document.getElementById("fileName").value;
+    const selectedRepo = document.querySelector('input[name="repo"]:checked');
+
+    if (!fileName) {
+        alert('لطفاً نام فایل را وارد کنید.');
+        return;
+    }
+
+    if (!selectedRepo) {
+        alert('لطفاً یک مخزن انتخاب کنید.');
+        return;
+    }
+
+    const repoName = selectedRepo.value;
+
+    const url = 'https://script.google.com/macros/s/AKfycby3kJxS8q3cbLqGnRo5h2Uv-cQwid9WskQBKRGEuxVWEiCD6Mj67rotbRbK-vpsf0Qu/exec';
+    const params = {
+        method: 'POST',
+        body: JSON.stringify({
+            action: 'uploadToGitHub',
+            fileName: fileName,
+            repoName: repoName
+        }),
+        contentType: 'application/json'
+    };
+
+    fetch(url, params)
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('آپلود موفقیت‌آمیز بود! لینک فایل: ' + data.url);
+            } else {
+                alert('خطا: ' + data.error);
+            }
+        })
+        .catch(error => {
+            alert('خطا در ارسال درخواست: ' + error);
+        });
+}
+
