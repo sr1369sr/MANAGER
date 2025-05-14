@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Vazir:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="x/pro uploader.css"> <!-- لینک به فایل CSS -->
     
-    <title>مدیریت فایل‌ها</title>
+    <title>آپلود پروژه ها</title>
     <base target="_top">
 
 </head>
@@ -16,7 +16,7 @@
   
   <div id="sidebar">
   <header>
-      <span>مدیریت عکسها_____</span>
+      <span>آپلود پروژه ها_____</span>
     </header>
 	<div class="content">
       <div class="accordion">
@@ -36,15 +36,39 @@
         </div>
       </div>
     </div>
-     <h2>بارگذاری عکسها</h2>
-    <input type="file" id="fileInput" multiple>
+     <h2>بارگذاری پوشه</h2>
+<input type="file" id="fileInput" webkitdirectory multiple>
+<button onclick="uploadFiles()">بارگذاری</button>
 
-    <button onclick="uploadFile()">بارگذاری</button>
 
     <!-- بخش ایجاد پوشه -->
     <h2>ایجاد پوشه جدید</h2>
     <input type="text" id="folderNameInput" placeholder="نام پوشه">
     <button onclick="createFolder()">ایجاد پوشه</button>
+	
+<h2>آپلود فایل به گیت‌هاب</h2>
+
+<label for="fileName">نام فایل:</label>
+<input type="text" id="fileName" name="fileName" placeholder="مثلاً: index.html یا folder1">
+
+
+<!-- بخش انتخاب مخزن گیت‌هاب -->
+<label for="repo">انتخاب مخزن گیت‌هاب:</label><br>
+
+<input type="radio" id="repo1" name="repo" value="P" checked>
+<label for="repo1">مخزن پروژه (P)</label><br>
+
+<input type="radio" id="repo2" name="repo" value="advert">
+<label for="repo2">مخزن تبلیغات (advert)</label><br><br>
+
+<!-- دکمه برای آپلود فایل -->
+<button onclick="uploadFileToGitHub()">آپلود به گیت‌هاب</button><br><br>
+
+<h2>آپلود پوشه به گیت‌هاب</h2>
+
+<!-- دکمه برای آپلود پوشه -->
+<button onclick="uploadDriveFolder()">آپلود پوشه به گیت‌هاب</button>
+
 </div>
 
 
