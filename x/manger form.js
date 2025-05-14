@@ -1,9 +1,20 @@
   const sidebarToggle = document.getElementById('sidebar-toggle');
-    const sidebar = document.getElementById('sidebar');
+const sidebar = document.getElementById('sidebar');
+const icon = sidebarToggle.querySelector('i'); // گرفتن آیکون داخل دکمه
 
-    sidebarToggle.addEventListener('click', () => {
-      sidebar.classList.toggle('open');
-    });
+sidebarToggle.addEventListener('click', () => {
+  sidebar.classList.toggle('open');
+  sidebarToggle.classList.toggle('open'); // برای تغییر رنگ دکمه
+
+  if (sidebar.classList.contains('open')) {
+    icon.classList.remove('fa-bars');
+    icon.classList.add('fa-times'); // تغییر آیکون به ضربدر
+  } else {
+    icon.classList.remove('fa-times');
+    icon.classList.add('fa-bars'); // برگشت آیکون به همبرگر
+  }
+});
+
 
     const accordionButtons = document.querySelectorAll(".accordion button");
     accordionButtons.forEach(button => {
@@ -30,7 +41,7 @@ function toggleAccordion(event) {
     }
 }
 
-const scriptURL = "https://script.google.com/macros/s/AKfycbxwGxxVmBzQnkpFBQUY7ivR4UNyD6JSVFkWSmyeI5aEX8P3CHayd-Cz96ZkdyhZoj--uA/exec";
+const scriptURL = "https://script.google.com/macros/s/AKfycbyKs61dNv6_Z5Wg21JriO0SXxth1dEB2un5NjW5QcozXHEo9HoTSRabY1_JGjBBGpfOIw/exec";
 
 function collectCheckboxValues() {
     var fixedText1 = "https://srswebsite.github.io/P/"; // متن ثابت اول
@@ -44,11 +55,17 @@ function collectCheckboxValues() {
 
     // گرفتن مقادیر عنوان پروژه و مختصات
     var projectTitle = document.getElementById("projectTitle").value;
-	var projectTitle_a = document.getElementById("projectTitle_a").value;
-	var projectTitle_b = document.getElementById("projectTitle_b").value;
-	var projectTitle_c = document.getElementById("projectTitle_c").value;
-	var projectTitle_d = document.getElementById("projectTitle_d").value;
+   var projectTitle_a = document.querySelector('input[name="projectTitle_a"]:checked')?.value || "";
+
+    var projectTitle_b = document.getElementById("projectTitle_b").value;
+    var projectTitle_c = document.getElementById("projectTitle_c").value;
+    var projectTitle_d = document.getElementById("projectTitle_d").value;
     var projectCoordinates = document.getElementById("projectCoordinates").value;
+
+    // اضافه کردن فیلد نام آلبوم جدید
+ var albumName = document.getElementById("variableInput3").value; // نام پروژه جدید
+
+    var finalAlbumText = fixedText1 + albumName + fixedText2; // ترکیب آلبوم با متن ثابت
 
     // قرار دادن متن نهایی و گزینه‌های انتخاب شده در فیلدهای مخفی
     document.getElementById("combinedText2").value = finalText;
@@ -57,32 +74,32 @@ function collectCheckboxValues() {
     // ساخت یک شیء FormData برای ارسال داده‌ها
     var formData = new FormData(document.getElementById("myForm"));
     formData.set('projectTitle', projectTitle);
-	formData.set('projectTitle_a', projectTitle_a);
-	formData.set('projectTitle_b', projectTitle_b);
-	formData.set('projectTitle_c', projectTitle_c);
-	formData.set('projectTitle_d', projectTitle_d);
+    formData.set('projectTitle_a', projectTitle_a);
+    formData.set('projectTitle_b', projectTitle_b);
+    formData.set('projectTitle_c', projectTitle_c);
+    formData.set('projectTitle_d', projectTitle_d);
     formData.set('projectCoordinates', projectCoordinates);
+    formData.set('albumName', albumName); // اضافه کردن مقدار آلبوم به فرم دیتا
+    formData.set('finalAlbumText', finalAlbumText); // اضافه کردن آدرس پروژه آلبوم
+
+    // ارسال داده‌ها به GAS
+    fetch(scriptURL, {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => alert('فرم با موفقیت ارسال شد!'))
+    .catch(error => console.error('Error:', error));
 }
 
 
 // افزودن رفتار به فرم
 document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("myForm").onsubmit = function(event) {
-        // جلوگیری از ارسال فرم به صورت پیش‌فرض
-        event.preventDefault();
-        
-        collectCheckboxValues(); // جمع‌آوری مقادیر چک باکس‌ها
-        
-        // تنظیم اکشن فرم
-        this.action = scriptURL;
-
-        // ارسال فرم
-        this.submit();
-
-        // نمایش پیام موفقیت
-        alert("اطلاعات با موفقیت ارسال شد!");
+        event.preventDefault(); // جلوگیری از ارسال فرم به روش پیش‌فرض
+        collectCheckboxValues(); // فقط یکبار ارسال از طریق fetch()
     };
-})
+});
+
 
 document.querySelectorAll('.accordion-header').forEach(header => {
     header.addEventListener('click', function() {
