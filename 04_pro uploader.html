@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Vazir:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="x/pro uploader.css"> <!-- لینک به فایل CSS -->
+    
+    <title>آپلود پروژه ها</title>
+    <base target="_top">
+
+</head>
+<body>
+<button id="sidebar-toggle"><i class="fas fa-bars"></i></button>
+  
+  <div id="sidebar">
+  <header>
+      <span>آپلود پروژه ها_____</span>
+    </header>
+	<div class="content">
+      <div class="accordion">
+        <button>منو</button>
+        <div class="panel">
+         <a href="index.html">پنل مدیر</a>
+          <a href="01_Pic editor.html">ادیتور عکس</a>
+          <a href="02_Pic uploader.html">آپلود عکس</a>
+          <a href="03_pro maker.html">ساخت پروژه</a>
+          <a href="04_pro uploader.html">آپلود پروژه</a>
+          <a href="05_manger form.html">فرم مجوز انتشار</a>
+		  <a href="personal form.html">فرم انتشار اعضا شبکه کاری</a>
+		  <a href="https://srswebsite.github.io/g/full gallery">FULL GALLERY</a>
+		  <a href="https://srswebsite.github.io/g/map gallery">MAPP GALLERY</a>
+		   <a href="https://sr1369sr.github.io/MANAGER/Club/info form.html">باشگاه مشتریان</a>
+		   <a href="https://docs.google.com/spreadsheets/d/1jdyH4LdlOpqj-SxX5F5lUVH7fAQmnmVHBwmIbIbaMpk/edit?usp=sharing">جدول دیتا بیس</a>
+        </div>
+      </div>
+    </div>
+     <h2>بارگذاری پوشه</h2>
+<input type="file" id="fileInput" webkitdirectory multiple>
+<button onclick="uploadFiles()">بارگذاری</button>
+
+
+    <!-- بخش ایجاد پوشه -->
+    <h2>ایجاد پوشه جدید</h2>
+    <input type="text" id="folderNameInput" placeholder="نام پوشه">
+    <button onclick="createFolder()">ایجاد پوشه</button>
+	
+<h2>آپلود فایل به گیت‌هاب</h2>
+
+<label for="fileName">نام فایل:</label>
+<input type="text" id="fileName" name="fileName" placeholder="مثلاً: index.html یا folder1">
+
+
+<!-- بخش انتخاب مخزن گیت‌هاب -->
+<label for="repo">انتخاب مخزن گیت‌هاب:</label><br>
+
+<input type="radio" id="repo1" name="repo" value="P" checked>
+<label for="repo1">مخزن پروژه (P)</label><br>
+
+<input type="radio" id="repo2" name="repo" value="advert">
+<label for="repo2">مخزن تبلیغات (advert)</label><br><br>
+
+<!-- دکمه برای آپلود فایل -->
+<button onclick="uploadFileToGitHub()">آپلود به گیت‌هاب</button><br><br>
+
+<h2>آپلود پوشه به گیت‌هاب</h2>
+
+<!-- دکمه برای آپلود پوشه -->
+<button onclick="uploadDriveFolder()">آپلود پوشه به گیت‌هاب</button>
+
+</div>
+
+
+
+    <div id="editor-container">
+ <div id="editor">
+    <!-- مسیر جاری -->
+    <h3 id="currentPath">مسیر جاری: /</h3>
+
+    <!-- بخش مدیریت فایل‌ها -->
+    
+    <div id="fileList">در حال بارگذاری فایل‌ها...</div>
+	<!-- دکمه برای پیش‌نمایش و رفرش کردن آیفریم -->
+	</div>
+	<div id="preview">
+<button onclick="refreshIframe()">پیش‌نمایش</button>
+<h2>نمایش فایل‌های داخل پوشه</h2>
+<iframe id="driveIframe" 
+        src="https://drive.google.com/embeddedfolderview?id=15qG9dpbJuhzviVMfp8oIMcGBSmzA_p5B#grid" 
+        width="100%" 
+        height="600px" 
+        frameborder="0" 
+        style="overflow:auto;">
+</iframe>
+</div>
+</div>
+<script src="x/pro uploader.js" defer></script> <!-- لینک به فایل JavaScript -->
+</body>
+</html>

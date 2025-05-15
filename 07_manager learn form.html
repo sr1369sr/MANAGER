@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>فرم انتشار دوره های آموزشی</title>
+	 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Vazir:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="x/manager learn form.css"> <!-- لینک به فایل CSS -->
+    
+</head>
+<body>
+<div class="container">
+        
+        
+        <iframe id="unique-siteFrame" class="unique-iframe" src="" title="نمایش سایت"></iframe>
+    </div>
+<button id="sidebar-toggle"><i class="fas fa-bars"></i></button>
+ <div id="sidebar">
+    <header>
+      <span>فرم انتشار دوره های آموزشی</span>
+    </header>
+   <div class="content">
+   
+      <div class="accordion">
+<button type="button">منو</button>
+
+		
+        <div class="panel">
+         <a href="index.html">پنل مدیر</a>
+          <a href="01_Pic editor.html">ادیتور عکس</a>
+          <a href="02_Pic uploader.html">آپلود عکس</a>
+          <a href="03_pro maker.html">ساخت پروژه</a>
+          <a href="04_pro uploader.html">آپلود پروژه</a>
+          <a href="05_manger form.html">فرم مجوز انتشار</a>
+		  <a href="personal form.html">فرم انتشار اعضا شبکه کاری</a>
+		  <a href="https://srswebsite.github.io/g/full gallery">FULL GALLERY</a>
+		  <a href="https://srswebsite.github.io/g/map gallery">MAPP GALLERY</a>
+		   <a href="https://sr1369sr.github.io/MANAGER/Club/info form.html">باشگاه مشتریان</a>
+		   <a href="https://docs.google.com/spreadsheets/d/1jdyH4LdlOpqj-SxX5F5lUVH7fAQmnmVHBwmIbIbaMpk/edit?usp=sharing">جدول دیتا بیس</a>
+        </div>
+      </div>
+	    <div class="content">
+      <div class="accordion">
+       <button type="button">گزارشات</button>
+
+        <div class="panel">
+         
+          <a href="https://docs.google.com/spreadsheets/d/1vOoNoHUymYgqwzN4NkWKcPW7WCzY1dwGyVAKmp9445M/edit?usp=drive_link"target="_blank ">لیست ثبت نام</a>
+		  
+          <a href="https://docs.google.com/spreadsheets/d/1gcyWQw9KAOFU1MSuKVaFxqXqhlqFteQMLrji283wcVI/edit?usp=drive_link"target="_blank ">جدول اطلاعات دوره ها</a>
+		  <a href="https://srswebsite.github.io/g/learn gallery"target="_blank ">گالری نمایش دوره های آموزشی</a>
+		
+	<!-- فیلد ورودی با متن ثابت -->
+        <label for="variableInput">نام دوره</label><br>
+        <input type="text" id="variableInput" class="unique-input" placeholder="نام کامل آگهی آموزش" required><br><br>
+		
+        <button id="unique-button" class="unique-button" onclick="loadSite()">نمایش  آگهی کامل آموزش</button>
+		
+		
+		 <input type="hidden" id="combinedText" name="combinedText">
+		  
+        </div>
+      </div>
+    </div>
+    </div>
+	
+     <div class="accordion">
+ <button type="button" onclick="toggleAccordion()">فرم_1</button>
+
+  <div class="panel" id="accordionPanel">
+  
+    <form id="myForm" method="POST">
+	 
+      <label for="variableInput">نام آلبوم</label><br>
+        <input type="text" id="variableInput2" placeholder="نام آلبوم آپلود شده" required><br><br>
+		<label for="variableInput3">نام پروژه</label><br>
+<input type="text" id="variableInput3" placeholder="نام کامل پروژه" required><br><br>
+
+		<label for="projectArea">هزینه دوره</label><br>
+<input type="text" id="projectAreaInput" class="project-area" name="projectArea" placeholder="هزینه دوره"><br><br>
+
+      <div>
+        <label for="projectTitle">عنوان دوره:</label>
+        <input type="text" id="projectTitle" name="projectTitle">
+       
+</div>
+</div>
+<div class="accordion">
+ <button type="button" onclick="toggleAccordion()">فرم_2</button>
+
+  <div class="panel" id="accordionPanel">
+   <label>سطح دوره</label><br>
+
+<input type="radio" id="status_open" name="projectTitle_a" value="پایه">
+<label for="status_open">پایه</label><br>
+
+<input type="radio" id="status_closed" name="projectTitle_a" value="ورکشاپ">
+<label for="status_closed">ورکشاپ</label><br>
+
+<input type="radio" id="status_vip" name="projectTitle_a" value="VIP">
+<label for="status_vip">VIP</label><br>
+
+
+        <label for="projectTitle_b">مدرس:</label>
+    <input type="text" id="projectTitle_b" name="projectTitle_b" placeholder="نام مدرس">
+        <label for="projectTitle_c">پیشنیاز:</label>
+    <input type="text" id="projectTitle_c" name="projectTitle_c" placeholder="پیشنیاز">
+       <label for="projectTitle_d">توضیحات:</label>
+    <input type="text" id="projectTitle_d" name="projectTitle_d" placeholder="توضیحات">
+      
+ 
+      <div>
+        <label for="projectCoordinates">مختصات پروژه (طول و عرض جغرافیایی):</label>
+        <input type="text" id="projectCoordinates" name="projectCoordinates" placeholder="35.7123, 51.3732">
+      </div>
+	  
+</div>
+</div>
+      <div>
+       
+        <input type="hidden" id="combinedText2" name="combinedText">
+        <input type="hidden" id="categories" name="categories">
+        <input type="hidden" id="formId" name="formId" value="فرم یک">
+      </div>
+   
+ 
+<div class="accordion">
+  <button type="button" onclick="toggleAccordion()">دسته بندی_1</button>
+
+  <div class="panel" id="accordionPanel">
+        <!-- پنل آکاردئونی دسته اول: نوع کاربری -->
+		
+          <div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">فناوری و کامپیوتر</div>
+            <div class="accordion-content">
+                <label><input type="checkbox" name="userType[]" value="مبانی کامپیوتر و اینترنت"> مبانی کامپیوتر و اینترنت</label><br>
+                <label><input type="checkbox" name="userType[]" value="برنامه‌نویسی مقدماتی">برنامه‌نویسی مقدماتی</label><br>
+                <label><input type="checkbox" name="userType[]" value="طراحی وبسایت‌های ساده"> طراحی وبسایت‌های ساده</label><br>
+				<label><input type="checkbox" name="userType[]" value="هوش مصنوعی برای همه"> هوش مصنوعی برای همه</label><br>
+				
+            </div>
+        </div>
+		 <div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">طراحی گرافیک</div>
+            <div class="accordion-content">
+                <label><input type="checkbox" name="userType[]" value="فتوشاپ از صفر تا پیشرفته"> فتوشاپ از صفر تا پیشرفته</label><br>
+                <label><input type="checkbox" name="userType[]" value="طراحی لوگو و پست"> طراحی لوگو و پست</label><br>
+                <label><input type="checkbox" name="userType[]" value="ساخت بنر تبلیغاتی">ساخت بنر تبلیغاتی</label><br>
+	
+        </div>
+		 </div>
+	  <div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">طراحی معماری</div>
+            <div class="accordion-content">
+                <label><input type="checkbox" name="structureType[]" value="اتوکد و نقشه‌کشی"> اتوکد و نقشه‌کشی</label><br>
+                <label><input type="checkbox" name="structureType[]" value="مدلسازی با 3ds Max"> مدلسازی با 3ds Max</label><br>
+				<label><input type="checkbox" name="structureType[]" value="طراحی داخلی و دکوراسیون"> طراحی داخلی و دکوراسیون</label><br>
+            </div>
+        </div>
+		
+		</div>
+	    </div>
+		<div class="accordion">
+  <button type="button" onclick="toggleAccordion()">دسته بندی_3</button>
+
+  <div class="panel" id="accordionPanel">
+		 <div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">طراحی مد و لباس</div>
+            <div class="accordion-content">
+                <label><input type="checkbox" name="structureType[]" value="طراحی دستی و دیجیتال لباس"> طراحی دستی و دیجیتال لباس</label><br>
+                <label><input type="checkbox" name="structureType[]" value="کار با Clo3D"> کار با Clo3D</label><br>
+				<label><input type="checkbox" name="structureType[]" value="شناخت رنگ و استایل"> شناخت رنگ و استایل</label><br>
+            </div>
+        </div>
+		<div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">طراحی جواهرات</div>
+            <div class="accordion-content">
+                <label><input type="checkbox" name="structureType[]" value="مبانی طراحی جواهر"> مبانی طراحی جواهر</label><br>
+                <label><input type="checkbox" name="structureType[]" value="مدل‌سازی با Rhino"> مدل‌سازی با Rhino</label><br>
+				<label><input type="checkbox" name="structureType[]" value="ساخت نمونه‌های دستی"> ساخت نمونه‌های دستی</label><br>
+				
+            </div>
+	    </div>
+		
+		 </div>
+	  </div>
+ <input type="submit" value="انتشار">
+       
+    </form>
+	
+	  
+	   </div>
+ <script src="x/manager learn form.js" defer></script> <!-- لینک به فایل JavaScript -->
+</body>
+</html>
