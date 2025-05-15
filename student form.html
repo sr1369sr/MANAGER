@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>فرم درخواست بازدید</title>
+    <link rel="stylesheet" href="x/student form.css">
+	<link rel="icon" href="file/images/srs.ico" type="image/x-icon"> <!-- آیکون -->
+</head>
+<body>
+    <form id="myForm" method="POST">
+        <label for="firstName">نام:</label>
+        <input type="text" id="firstName" name="firstName" required><br><br>
+
+        <label for="lastName">نام خانوادگی:</label>
+        <input type="text" id="lastName" name="lastName" required><br><br>
+
+       <label for="phone">شماره تلفن:</label>
+<input type="tel" id="phone" name="phone" required><br><br>
+
+        <label for="province">کد ملی:</label>
+        <input type="text" id="province" name="province" required><br><br>
+
+        <label for="city">جنسیت:</label>
+        <input type="text" id="city" name="city" required><br><br>
+
+       <label for="address">عنوان دوره:</label>
+<textarea id="address" name="address" class="large-textarea" required></textarea><br><br>
+
+<label for="message">تحصیلات:</label>
+<textarea id="message" name="message" class="large-textarea" placeholder="آخرین مدرک تحصیلی دریافت شده یا مقطع تحصیلی"required></textarea><br><br>
+
+<!-- فیلد ایمیل که می‌تواند خودکار پر شود -->
+ <label for="address">ایمیل:</label>
+<input type="email" id="email" name="email" class="email-field"><br><br>
+
+<!-- دکمه برای پر کردن ایمیل خودکار -->
+<button type="button" id="autoFillEmail" class="auto-fill-btn">تایید اطلاعات  وارد شده!</button>
+
+
+        <!-- فیلدهای مخفی برای ارسال اطلاعات به سمت سرور -->
+        <input type="hidden" id="ipAddress" name="ipAddress">
+        <input type="hidden" id="location" name="location">
+        <input type="hidden" id="browserInfo" name="browserInfo">
+        <input type="hidden" id="formId" name="formId" value="فرم1"> <!-- شناسه فرم -->
+
+        <input type="submit" value="ارسال">
+    </form>
+
+    <script src="x/student form.js"></script>
+</body>
+</html>
